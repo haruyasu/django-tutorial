@@ -1,4 +1,3 @@
 # Introduction
 
 * test
-# django-tutorial
