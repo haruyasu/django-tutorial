@@ -1,3 +1,6 @@
 {
-  "language": "ja"
+  "title": "Django Tutorial",
+  "description": "Django Tutorial",
+  "language": "ja",
+  "plugins": ["hide-published-with", "theme-official"]
 }
