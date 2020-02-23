@@ -1,0 +1,726 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>コメント機能の追加 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="21_javascript.html" />
+    
+    
+    <link rel="prev" href="19_auth.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    ブログ構築
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_ready.html">
+            
+                <a href="01_ready.html">
+            
+                    
+                    前準備
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02_project.html">
+            
+                <a href="02_project.html">
+            
+                    
+                    プロジェクトの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03_app.html">
+            
+                <a href="03_app.html">
+            
+                    
+                    新しいアプリケーションの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="04_models.html">
+            
+                <a href="04_models.html">
+            
+                    
+                    モデルの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05_admin.html">
+            
+                <a href="05_admin.html">
+            
+                    
+                    管理画面の作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="06_urls.html">
+            
+                <a href="06_urls.html">
+            
+                    
+                    URLの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="07_views.html">
+            
+                <a href="07_views.html">
+            
+                    
+                    Viewの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="08_html.html">
+            
+                <a href="08_html.html">
+            
+                    
+                    HTMLの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="09_dynamic.html">
+            
+                <a href="09_dynamic.html">
+            
+                    
+                    動的データの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="10_templates.html">
+            
+                <a href="10_templates.html">
+            
+                    
+                    テンプレートの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="11_css.html">
+            
+                <a href="11_css.html">
+            
+                    
+                    CSSの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="12_template_extending.html">
+            
+                <a href="12_template_extending.html">
+            
+                    
+                    テンプレートの拡張
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="13_application_extending.html">
+            
+                <a href="13_application_extending.html">
+            
+                    
+                    アプリケーションの拡張
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="14_forms.html">
+            
+                <a href="14_forms.html">
+            
+                    
+                    フォームの作成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="15_security.html">
+            
+                <a href="15_security.html">
+            
+                    
+                    セキュリティ対策
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="16_drafts.html">
+            
+                <a href="16_drafts.html">
+            
+                    
+                    下書き機能の追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="17_publish.html">
+            
+                <a href="17_publish.html">
+            
+                    
+                    公開機能の追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="18_delete.html">
+            
+                <a href="18_delete.html">
+            
+                    
+                    削除機能の追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="19_auth.html">
+            
+                <a href="19_auth.html">
+            
+                    
+                    セキュリティの強化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.21" data-path="20_comments.html">
+            
+                <a href="20_comments.html">
+            
+                    
+                    コメント機能の追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="21_javascript.html">
+            
+                <a href="21_javascript.html">
+            
+                    
+                    JavaScriptの追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="22_image.html">
+            
+                <a href="22_image.html">
+            
+                    
+                    トップ画像の追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="23_about.html">
+            
+                <a href="23_about.html">
+            
+                    
+                    固定ページの追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="24_deploy.html">
+            
+                <a href="24_deploy.html">
+            
+                    
+                    Herokuデプロイ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >コメント機能の追加</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x6A5F;&#x80FD;&#x306E;&#x8FFD;&#x52A0;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x6A5F;&#x80FD;&#x306E;&#x8FFD;&#x52A0;</h1>
+<h2 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F5C;&#x6210;</h2>
+<p>models.py&#x306B;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/models.py</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Comment</span><span class="hljs-params">(models.Model)</span>:</span>
+  post = models.ForeignKey(<span class="hljs-string">&apos;blog.Post&apos;</span>, on_delete=models.CASCADE, related_name=<span class="hljs-string">&apos;comments&apos;</span>)
+  author = models.CharField(max_length=<span class="hljs-number">200</span>)
+  text = models.TextField()
+  created_date = models.DateTimeField(default=timezone.now)
+  approved_comment = models.BooleanField(default=<span class="hljs-keyword">False</span>)
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">approve</span><span class="hljs-params">(self)</span>:</span>
+    self.approved_comment = <span class="hljs-keyword">True</span>
+    self.save()
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> self.text
+</code></pre>
+<h2 id="&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306B;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3092;&#x8FFD;&#x52A0;">&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306B;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3092;&#x8FFD;&#x52A0;</h2>
+<p>&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x5FC5;&#x305A;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x3092;&#x66F4;&#x65B0;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+<pre><code>(myvenv) ~$ pthon3 manage.py makemigrations blog
+(myvenv) ~$ python3 manage.py migrate blog
+</code></pre><h2 id="&#x7BA1;&#x7406;&#x753B;&#x9762;&#x306B;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x767B;&#x9332;">&#x7BA1;&#x7406;&#x753B;&#x9762;&#x306B;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x767B;&#x9332;</h2>
+<p>&#x7BA1;&#x7406;&#x753B;&#x9762;&#x3067;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x64CD;&#x4F5C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/admin.py</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Post, Comment
+
+admin.site.register(Post)
+admin.site.register(Comment)
+</code></pre>
+<p>&#x7BA1;&#x7406;&#x753B;&#x9762;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3059;&#x308B;&#x3068;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x8FFD;&#x52A0;&#x3084;&#x524A;&#x9664;&#x304C;&#x51FA;&#x6765;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><a href="http://127.0.0.1:8000/admin/blog/comment/" target="_blank">http://127.0.0.1:8000/admin/blog/comment/</a></p>
+<h2 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x8868;&#x793A;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x8868;&#x793A;</h2>
+<p>&#x6700;&#x5F8C;&#x306E;endblock&#x306E;&#x524D;&#x306B;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/templates/blog/post_detail.html</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  {{ post.text|linebreaksbr }}
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+{% for comment in post.comments.all %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;comment-meta&quot;</span>&gt;</span>{{ comment.created_date }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{ comment.author }}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ comment.text|linebreaks }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% empty %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#x307E;&#x3060;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endfor %}
+
+{% endblock %}
+</code></pre>
+<p>&#x6295;&#x7A3F;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x6570;&#x3092;&#x8868;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/templates/blog/post_list.html</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.text|linebreaksbr|truncatechars:100 }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;post_detail&apos; pk=post.pk %}&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-comment&quot;</span>&gt;</span>Comments: {{ post.comments.count }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+{% endfor %}
+</code></pre>
+<h2 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x6295;&#x7A3F;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x6295;&#x7A3F;</h2>
+<p>forms.py&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x5909;&#x66F4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/forms.py</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django <span class="hljs-keyword">import</span> forms
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Post, Comment
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostForm</span><span class="hljs-params">(forms.ModelForm)</span>:</span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+    model = Post
+    fields = (<span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>,)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentForm</span><span class="hljs-params">(forms.ModelForm)</span>:</span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+    model = Comment
+    fields = (<span class="hljs-string">&apos;author&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>,)
+</code></pre>
+<h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x4F5C;&#x6210;</h3>
+<p>blog/templates/blog/post_detail.html</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;post_comment&apos; pk=post.pk %}&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>Add comment<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% for comment in post.comments.all %}
+</code></pre>
+<h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;url&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;url&#x3092;&#x4F5C;&#x6210;</h3>
+<p>blog/urls.py</p>
+<pre><code class="lang-python">path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/comment/&apos;</span>, views.post_comment, name=<span class="hljs-string">&apos;post_comment&apos;</span>),
+</code></pre>
+<h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h3>
+<p>blog/views.py</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> .forms <span class="hljs-keyword">import</span> PostForm, CommentForm
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_comment</span><span class="hljs-params">(request, pk)</span>:</span>
+  post = get_object_or_404(Post, pk=pk)
+  <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:
+    form = CommentForm(request.POST)
+    <span class="hljs-keyword">if</span> form.is_valid():
+      comment = form.save(commit=<span class="hljs-keyword">False</span>)
+      comment.post = post
+      comment.save()
+      <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&apos;post_detail&apos;</span>, pk=post.pk)
+  <span class="hljs-keyword">else</span>:
+    form = CommentForm()
+  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_comment.html&apos;</span>, {<span class="hljs-string">&apos;form&apos;</span>: form})
+</code></pre>
+<h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x6295;&#x7A3F;&#x3059;&#x308B;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x6295;&#x7A3F;&#x3059;&#x308B;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;</h3>
+<p>blog/templates/blog/post_comment.html</p>
+<pre><code class="lang-html">{% extends &apos;blog/base.html&apos; %}
+
+{% block header %}
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site-heading&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>New comment<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% endblock %}
+
+{% block content %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-form&quot;</span>&gt;</span>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-right&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;save btn btn-success&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>Send<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+{% endblock %}
+</code></pre>
+<h2 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x7BA1;&#x7406;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x7BA1;&#x7406;</h2>
+<p>&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x627F;&#x8A8D;&#x307E;&#x305F;&#x306F;&#x524A;&#x9664;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>Remove&#x30DC;&#x30BF;&#x30F3;&#x3068;Approve&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/templates/blog/post_detail.html</p>
+<pre><code class="lang-html">{% for comment in post.comments.all %}
+  {% if not comment.approved_comment %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;comment_remove&apos; pk=comment.pk %}&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>Remove<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;comment_approve&apos; pk=comment.pk %}&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>Approve<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  {% endif %}
+</code></pre>
+<h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x7BA1;&#x7406;&#x306E;url&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x7BA1;&#x7406;&#x306E;url&#x3092;&#x4F5C;&#x6210;</h3>
+<p>blog/urls.py</p>
+<pre><code class="lang-python">  path(<span class="hljs-string">&apos;comment/&lt;int:pk&gt;/approve/&apos;</span>, views.comment_approve, name=<span class="hljs-string">&apos;comment_approve&apos;</span>),
+  path(<span class="hljs-string">&apos;comment/&lt;int:pk&gt;/remove/&apos;</span>, views.comment_remove, name=<span class="hljs-string">&apos;comment_remove&apos;</span>),
+</code></pre>
+<h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x7BA1;&#x7406;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x7BA1;&#x7406;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h3>
+<p>blog/views.py</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Post, Comment
+
+<span class="hljs-meta">@login_required</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">comment_approve</span><span class="hljs-params">(request, pk)</span>:</span>
+  comment = get_object_or_404(Comment, pk=pk)
+  comment.approve()
+  <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&apos;post_detail&apos;</span>, pk=comment.post.pk)
+
+<span class="hljs-meta">@login_required</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">comment_remove</span><span class="hljs-params">(request, pk)</span>:</span>
+  comment = get_object_or_404(Comment, pk=pk)
+  comment.delete()
+  <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&apos;post_detail&apos;</span>, pk=comment.post.pk)
+</code></pre>
+<p>&#x3053;&#x308C;&#x3067;&#x3001;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x627F;&#x8A8D;&#x3068;&#x524A;&#x9664;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<h3 id="&#x627F;&#x8A8D;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x6570;&#x3092;&#x8868;&#x793A;">&#x627F;&#x8A8D;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x6570;&#x3092;&#x8868;&#x793A;</h3>
+<p>blog/templates/blog/post_list.html</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.text|linebreaksbr|truncatechars:100 }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;post_detail&apos; pk=post.pk %}&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-comment&quot;</span>&gt;</span>Comments: {{ post.approved_comments.count }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+{% endfor %}
+</code></pre>
+<h3 id="&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FFD;&#x52A0;">&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FFD;&#x52A0;</h3>
+<p>Post&#x30E2;&#x30C7;&#x30EB;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/models.py</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span><span class="hljs-params">(models.Model)</span>:</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">approved_comments</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> self.comments.filter(approved_comment=<span class="hljs-keyword">True</span>)
+</code></pre>
+<p>&#x3053;&#x308C;&#x3067;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x6A5F;&#x80FD;&#x304C;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x304C;&#x6295;&#x7A3F;&#x3067;&#x304D;&#x308B;&#x304B;&#x8A66;&#x3057;&#x3066;&#x307F;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="19_auth.html" class="navigation navigation-prev " aria-label="Previous page: セキュリティの強化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="21_javascript.html" class="navigation navigation-next " aria-label="Next page: JavaScriptの追加">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"コメント機能の追加","level":"1.21","depth":1,"next":{"title":"JavaScriptの追加","level":"1.22","depth":1,"path":"docs/21_javascript.md","ref":"docs/21_javascript.md","articles":[]},"previous":{"title":"セキュリティの強化","level":"1.20","depth":1,"path":"docs/19_auth.md","ref":"docs/19_auth.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ja","gitbook":"*"},"file":{"path":"docs/20_comments.md","mtime":"2020-02-23T01:55:59.506Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-23T01:56:34.219Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
