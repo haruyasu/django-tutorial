@@ -16,7 +16,7 @@ https://docs.djangoproject.com/ja/2.2/
 
 もしエラーが発生したり、分かりにくい箇所は下記のGitHubにてソースコードを確認して下さい。
 
-https://github.com/haruyasu/django-template-upgrade
+https://github.com/haruyasu/django-template-upgrade2
 
 この内容はDjango Girlsの内容を改良しています。
 
@@ -28,7 +28,7 @@ https://tutorial.djangogirls.org/ja/
 
 このチュートリアルを実施すると、下記のようなブログサイトを構築することができます。
 
-https://django-template-blog-upgrade.herokuapp.com/
+https://django-template-blog-upgrade2.herokuapp.com/
 
 ログイン、ブログ投稿、編集、削除、コメント機能を実装し、固定ページでAboutページなど好きなページも追加できます。
 
