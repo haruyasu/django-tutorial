@@ -2,7 +2,11 @@
 
 はじめまして、フリーランスプログラミング講師のHaru([@hathle](https://twitter.com/hathle))です。
 
-今回は、Djangoアプリ開発のチュートリアルです。
+Python、Djangoをメインに教えています。
+
+お問い合わせはTwitterからお願いいたします。
+
+今回は、初心者向けのDjangoアプリ開発チュートリアルです。
 
 すぐにDjangoを使ってアプリ開発をしてみたい方向けの内容になっています。
 
@@ -18,9 +22,7 @@ https://docs.djangoproject.com/ja/2.2/
 
 https://github.com/haruyasu/django-template-upgrade2
 
-この内容はDjango Girlsの内容を改良しています。
-
-詳しい解説はDjango Girlsを参考にして下さい。
+※この内容はDjango Girlsの内容を改良しています。
 
 https://tutorial.djangogirls.org/ja/
 
