@@ -23,6 +23,6 @@
 * [21.認証機能の追加](docs/20_accounts.md)
 * [22.コメント機能の追加](docs/21_comments.md)
 * [23.JavaScriptの追加](docs/22_javascript.md)
-* [24.トップ画像の追加](docs/23_image.md)
+* [24.ヘッダー画像の追加](docs/23_header_image.md)
 * [25.固定ページの追加](docs/24_about.md)
 * [26.Herokuデプロイ](docs/25_deploy.md)
