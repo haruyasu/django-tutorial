@@ -663,6 +663,64 @@ urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
 <pre><code>(myvenv) ~$ python3 manage.py runserver
 </code></pre><p>&#x6295;&#x7A3F;&#x753B;&#x9762;&#x3067;&#x753B;&#x50CF;&#x3092;&#x30A2;&#x30C3;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 <p>&#x753B;&#x50CF;&#x3092;&#x30A2;&#x30C3;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x3057;&#x3066;&#x3001;&#x30D8;&#x30C3;&#x30C0;&#x30FC;&#x306E;&#x753B;&#x50CF;&#x304C;&#x5909;&#x66F4;&#x3055;&#x308C;&#x308B;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h2 id="heroku&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;">Heroku&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;</h2>
+<p>&#x203B;Heroku&#x4EE5;&#x5916;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x65B9;&#x306F;&#x98DB;&#x3070;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x4ECA;&#x56DE;&#x3001;Web&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x306F;Heroku&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3057;&#x304B;&#x3057;&#x3001;Heroku&#x306F;&#x753B;&#x50CF;&#x3001;&#x52D5;&#x753B;&#x306E;&#x30A2;&#x30C3;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x306B;&#x5BFE;&#x5FDC;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x305D;&#x3053;&#x3067;&#x3001;cloudinary&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="cloudinary&#x3068;&#x306F;">Cloudinary&#x3068;&#x306F;</h3>
+<p>Cloudinary&#x306F;&#x3001;&#x30E1;&#x30C7;&#x30A3;&#x30A2;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30A2;&#x30C3;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x3084;&#x30AF;&#x30E9;&#x30A6;&#x30C9;&#x4E0A;&#x306E;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x3078;&#x306E;&#x4FDD;&#x7BA1;&#x304C;&#x3067;&#x304D;&#x308B;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3067;&#x3059;&#x3002;</p>
+<p><a href="https://cloudinary.com/" target="_blank">https://cloudinary.com/</a></p>
+<h3 id="&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x306E;&#x4F5C;&#x6210;">&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x306E;&#x4F5C;&#x6210;</h3>
+<p>&#x53F3;&#x4E0A;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x300C;SING UP FOR FREE&#x300D;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3057;&#x3066;&#x3001;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+<p>Account Detail&#x306B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>Cloud name:    xxx
+API Key: xxx
+API Secret:    xxx
+</code></pre><h3 id="cloudinary&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">cloudinary&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h3>
+<p>pip&#x3092;&#x6700;&#x65B0;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3057;&#x3066;&#x304B;&#x3089;&#x3001;cloudinary&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>pip3 install --upgrade pip
+pip3 install --upgrade setuptools
+pip3 install install django-cloudinary-storage
+</code></pre><h3 id="heroku&#x306B;cloudinary&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">Heroku&#x306B;cloudinary&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h3>
+<p>Heroku&#x306B;cloudinary&#x306E;addon&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>heroku addons:add cloudinary:starter
+</code></pre><h3 id="&#x8A2D;&#x5B9A;&#x5909;&#x66F4;">&#x8A2D;&#x5B9A;&#x5909;&#x66F4;</h3>
+<p>Account Detail&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x60C5;&#x5831;&#x3092;CLOUDINARY_STORAGE&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-python">INSTALLED_APPS = [
+    ...
+    <span class="hljs-string">&apos;cloudinary&apos;</span>, <span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+    <span class="hljs-string">&apos;cloudinary_storage&apos;</span>,<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+]
+
+<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+DEFAULT_FILE_STORAGE = <span class="hljs-string">&apos;cloudinary_storage.storage.MediaCloudinaryStorage&apos;</span>
+<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+CLOUDINARY_STORAGE = {
+    <span class="hljs-string">&apos;CLOUD_NAME&apos;</span>: <span class="hljs-string">&apos;xxx&apos;</span>,
+    <span class="hljs-string">&apos;API_KEY&apos;</span>: <span class="hljs-string">&apos;xxx&apos;</span>,
+    <span class="hljs-string">&apos;API_SECRET&apos;</span>: <span class="hljs-string">&apos;xxx&apos;</span>
+}
+</code></pre>
+<h3 id="&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x5909;&#x66F4;">&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x5909;&#x66F4;</h3>
+<p>url&#x306E;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x5FC5;&#x8981;&#x3067;&#x3057;&#x305F;&#x304C;&#x3001;&#x4ECA;&#x306F;&#x30AF;&#x30E9;&#x30A6;&#x30C9;&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>blog/templates/blog/post_detail.html</p>
+<pre><code class="lang-html">{% if post.image %}
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-tag">header</span><span class="hljs-selector-class">.masthead</span> {
+    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&apos;{{ post.image.url }}&apos;</span>) <span class="hljs-meta">!important</span>;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+{% endif %}
+</code></pre>
+<h3 id="&#x753B;&#x50CF;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x524A;&#x9664;">&#x753B;&#x50CF;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x524A;&#x9664;</h3>
+<p>&#x5148;&#x307B;&#x3069;&#x8FFD;&#x52A0;&#x3057;&#x305F;images&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306F;&#x5FC5;&#x8981;&#x306A;&#x3044;&#x306E;&#x3067;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>/images/
+</code></pre><h3 id="&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x5B9F;&#x884C;">&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x5B9F;&#x884C;</h3>
+<pre><code>(myvenv) ~$ python3 manage.py runserver
+</code></pre><p>&#x3053;&#x308C;&#x3067;&#x753B;&#x50CF;&#x306E;&#x4FDD;&#x5B58;&#x5148;&#x304C;cloudinary&#x3068;&#x306A;&#x308A;&#x3001;Heroku&#x3067;&#x3082;&#x753B;&#x50CF;&#x304C;&#x6295;&#x7A3F;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>&#x6295;&#x7A3F;&#x753B;&#x9762;&#x3067;&#x8A66;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 
                             </div>
                             
@@ -699,7 +757,7 @@ urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 24th 20</a>
+                    <a href="#">Updated Feb 25th 20</a>
                 </li>
             </ul>
         </div>
@@ -738,7 +796,7 @@ urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"next":{"title":"25.固定ページの追加","level":"1.25","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"previous":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/23_header_image.md","mtime":"2020-02-24T07:39:08.363Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T07:40:06.922Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"next":{"title":"25.固定ページの追加","level":"1.25","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"previous":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/23_header_image.md","mtime":"2020-02-25T13:35:40.652Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-25T13:39:38.549Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 
