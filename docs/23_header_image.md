@@ -194,3 +194,96 @@ blog/templates/blog/post_detail.html
 今回、WebサーバーはHerokuを使用します。
 
 しかし、Herokuは画像、動画のアップロードに対応していません。
+
+そこで、cloudinaryを使用します。
+
+### Cloudinaryとは
+
+Cloudinaryは、メディアファイルのアップロードやクラウド上のストレージへの保管ができるサービスです。
+
+https://cloudinary.com/
+
+### アカウントの作成
+
+右上ボタンの「SING UP FOR FREE」ボタンを押して、アカウントを作成して下さい。
+
+Account Detailにユーザー情報が表示されます。
+```
+Cloud name:	xxx
+API Key: xxx
+API Secret:	xxx
+```
+
+### cloudinaryをインストール
+
+pipを最新バージョンにしてから、cloudinaryをインストールします。
+
+```
+pip3 install --upgrade pip
+pip3 install --upgrade setuptools
+pip3 install install django-cloudinary-storage
+```
+
+### Herokuにcloudinaryをインストール
+
+Herokuにcloudinaryのaddonをインストールします。
+
+```
+heroku addons:add cloudinary:starter
+```
+
+### 設定変更
+
+Account Detailに表示された情報をCLOUDINARY_STORAGEに追加します。
+
+```python
+INSTALLED_APPS = [
+    ...
+    'cloudinary', # 追加
+    'cloudinary_storage',# 追加
+]
+
+# 追加
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# 追加
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'xxx',
+    'API_KEY': 'xxx',
+    'API_SECRET': 'xxx'
+}
+```
+
+### テンプレート変更
+
+urlのスラッシュを削除します。
+
+ローカルに保存する場合は必要でしたが、今はクラウドに保存するので、必要がなくなりました。
+
+blog/templates/blog/post_detail.html
+```html
+{% if post.image %}
+<style>
+  header.masthead {
+    background-image: url('{{ post.image.url }}') !important;
+  }
+</style>
+{% endif %}
+```
+
+### 画像フォルダ削除
+
+先ほど追加したimagesフォルダは必要ないので削除します。
+
+```
+/images/
+```
+
+### サーバー実行
+
+```
+(myvenv) ~$ python3 manage.py runserver
+```
+
+これで画像の保存先がcloudinaryとなり、Herokuでも画像が投稿できるようになりました。
+
+投稿画面で試してみましょう。
