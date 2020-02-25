@@ -187,3 +187,10 @@ blog/templates/blog/post_detail.html
 
 画像をアップロードして、ヘッダーの画像が変更されるか確認してみましょう。
 
+## Herokuを使う場合
+
+※Heroku以外を使用する方は飛ばして下さい。
+
+今回、WebサーバーはHerokuを使用します。
+
+しかし、Herokuは画像、動画のアップロードに対応していません。
