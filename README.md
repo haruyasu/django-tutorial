@@ -1,10 +1,20 @@
 # ブログ構築
 
+## 自己紹介
+
 はじめまして、フリーランスプログラミング講師のHaru([@hathle](https://twitter.com/hathle))です。
 
-Python、Djangoをメインに教えています。
+エンジニア歴13年目で海外就労も経験しています。
 
-お問い合わせはTwitterからお願いいたします。
+Python、Djangoをメインにオンラインでマンツーマンレッスンをしています。
+
+お問い合わせなどは、Twitterからお願いいたします。
+
+プログラミングで人生を変えることができます。
+
+ぜひ一緒に目標に向かって頑張っていきましょう！！
+
+## はじめに
 
 今回は、初心者向けのDjangoアプリ開発チュートリアルです。
 
@@ -21,10 +31,6 @@ https://docs.djangoproject.com/ja/2.2/
 もしエラーが発生したり、分かりにくい箇所は下記のGitHubにてソースコードを確認して下さい。
 
 https://github.com/haruyasu/django-template-upgrade2
-
-※この内容はDjango Girlsの内容を改良しています。
-
-https://tutorial.djangogirls.org/ja/
 
 ## 目標
 
