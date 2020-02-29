@@ -550,7 +550,7 @@
                                 <h1 id="&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4F5C;&#x6210;">&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4F5C;&#x6210;</h1>
 <p>&#x6700;&#x521D;&#x306B;&#x6295;&#x7A3F;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;Post&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3001;&#x5404;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>ForeignKey&#x3001;CharField&#x3001;TextField&#x3001;DateTimeField&#x306A;&#x3069;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x89E3;&#x8AAC;&#x306F;&#x516C;&#x5F0F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x53C2;&#x8003;&#x306B;&#x3057;&#x3066;&#x307F;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+<p>ForeignKey&#x3001;CharField&#x3001;TextField&#x3001;DateTimeField&#x306A;&#x3069;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x89E3;&#x8AAC;&#x306F;&#x516C;&#x5F0F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x53C2;&#x8003;&#x306B;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
 <p><a href="https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield" target="_blank">https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield</a></p>
 <ul>
 <li>ForeignKey&#xFF1A;&#x591A;&#x5BFE;1&#x306E;&#x95A2;&#x4FC2;&#x3067;&#x4ED6;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;</li>
@@ -558,11 +558,11 @@
 <li>TextField&#xFF1A;&#x591A;&#x91CF;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
 <li>DateTimeField&#xFF1A;&#x65E5;&#x4ED8;&#x3068;&#x6642;&#x523B;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
 </ul>
-<p>&#x5206;&#x304B;&#x308A;&#x3084;&#x3059;&#x304F;&#x307E;&#x3068;&#x307E;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p><a href="https://qiita.com/nachashin/items/f768f0d437e0042dd4b3" target="_blank">https://qiita.com/nachashin/items/f768f0d437e0042dd4b3</a></p>
+<p>blog/models.py</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> django.conf <span class="hljs-keyword">import</span> settings
 <span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
 <span class="hljs-keyword">from</span> django.utils <span class="hljs-keyword">import</span> timezone
+<span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> reverse
 
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span><span class="hljs-params">(models.Model)</span>:</span>
@@ -575,6 +575,9 @@
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">publish</span><span class="hljs-params">(self)</span>:</span>
     self.published_date = timezone.now()
     self.save()
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_absolute_url</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> reverse(<span class="hljs-string">&quot;post_detail&quot;</span>, kwargs={<span class="hljs-string">&apos;pk&apos;</span>:self.pk})
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
     <span class="hljs-keyword">return</span> self.title
@@ -619,7 +622,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 23rd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -658,7 +661,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"5.モデルの作成","level":"1.5","depth":1,"next":{"title":"6.管理画面の作成","level":"1.6","depth":1,"path":"docs/05_admin.md","ref":"docs/05_admin.md","articles":[]},"previous":{"title":"4.新しいアプリケーションの作成","level":"1.4","depth":1,"path":"docs/03_app.md","ref":"docs/03_app.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/04_models.md","mtime":"2020-02-23T01:53:21.439Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"5.モデルの作成","level":"1.5","depth":1,"next":{"title":"6.管理画面の作成","level":"1.6","depth":1,"path":"docs/05_admin.md","ref":"docs/05_admin.md","articles":[]},"previous":{"title":"4.新しいアプリケーションの作成","level":"1.4","depth":1,"path":"docs/03_app.md","ref":"docs/03_app.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/04_models.md","mtime":"2020-02-28T23:07:14.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

@@ -558,12 +558,15 @@
 </code></pre>
 <h2 id="url&#x3092;&#x8FFD;&#x52A0;">url&#x3092;&#x8FFD;&#x52A0;</h2>
 <p>blog/urls.py</p>
-<pre><code class="lang-python">  path(<span class="hljs-string">&apos;about/&apos;</span>, views.about, name=<span class="hljs-string">&apos;about&apos;</span>),
+<pre><code class="lang-python">  path(<span class="hljs-string">&apos;about/&apos;</span>, views.AboutView.as_view(), name=<span class="hljs-string">&apos;about&apos;</span>),
 </code></pre>
 <h2 id="view&#x3092;&#x8FFD;&#x52A0;">View&#x3092;&#x8FFD;&#x52A0;</h2>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">about</span><span class="hljs-params">(request)</span>:</span>
-  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;page/about.html&apos;</span>)
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AboutView</span><span class="hljs-params">(TemplateView)</span>:</span>
+  template_name = <span class="hljs-string">&apos;page/about.html&apos;</span>
 </code></pre>
 <h2 id="&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x8FFD;&#x52A0;">&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x8FFD;&#x52A0;</h2>
 <p>/templates/page&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;about.html&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -623,7 +626,7 @@ blog/templates/page/about.html</p>
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 24th 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -662,7 +665,7 @@ blog/templates/page/about.html</p>
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"25.固定ページの追加","level":"1.25","depth":1,"next":{"title":"26.Herokuデプロイ","level":"1.26","depth":1,"path":"docs/25_deploy.md","ref":"docs/25_deploy.md","articles":[]},"previous":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"path":"docs/23_header_image.md","ref":"docs/23_header_image.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/24_about.md","mtime":"2020-02-24T02:20:24.799Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"25.固定ページの追加","level":"1.25","depth":1,"next":{"title":"26.Herokuデプロイ","level":"1.26","depth":1,"path":"docs/25_deploy.md","ref":"docs/25_deploy.md","articles":[]},"previous":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"path":"docs/23_header_image.md","ref":"docs/23_header_image.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/24_about.md","mtime":"2020-02-29T00:23:52.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

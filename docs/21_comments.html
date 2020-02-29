@@ -562,6 +562,9 @@
     self.approved_comment = <span class="hljs-keyword">True</span>
     self.save()
 
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_absolute_url</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> reverse(<span class="hljs-string">&quot;post_list&quot;</span>)
+
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
     <span class="hljs-keyword">return</span> self.text
 </code></pre>
@@ -614,12 +617,6 @@ admin.site.register(Comment)
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> django <span class="hljs-keyword">import</span> forms
 <span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Post, Comment
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostForm</span><span class="hljs-params">(forms.ModelForm)</span>:</span>
-  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
-    model = Post
-    fields = (<span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>,)
-
-
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentForm</span><span class="hljs-params">(forms.ModelForm)</span>:</span>
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
     model = Comment
@@ -635,12 +632,13 @@ admin.site.register(Comment)
 </code></pre>
 <h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;url&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;url&#x3092;&#x4F5C;&#x6210;</h3>
 <p>blog/urls.py</p>
-<pre><code class="lang-python">path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/comment/&apos;</span>, views.post_comment, name=<span class="hljs-string">&apos;post_comment&apos;</span>),
+<pre><code class="lang-python">  path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/comment/&apos;</span>, views.post_comment, name=<span class="hljs-string">&apos;post_comment&apos;</span>),
 </code></pre>
 <h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h3>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> .forms <span class="hljs-keyword">import</span> PostForm, CommentForm
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> blog.forms <span class="hljs-keyword">import</span> PostForm, CommentForm
 
+<span class="hljs-meta">@login_required</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_comment</span><span class="hljs-params">(request, pk)</span>:</span>
   post = get_object_or_404(Post, pk=pk)
   <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:
@@ -693,7 +691,7 @@ admin.site.register(Comment)
 </code></pre>
 <h3 id="&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x7BA1;&#x7406;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x7BA1;&#x7406;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h3>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Post, Comment
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> blog.models <span class="hljs-keyword">import</span> Post, Comment
 
 <span class="hljs-meta">@login_required</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">comment_approve</span><span class="hljs-params">(request, pk)</span>:</span>
@@ -764,7 +762,7 @@ admin.site.register(Comment)
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 24th 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -803,7 +801,7 @@ admin.site.register(Comment)
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"22.コメント機能の追加","level":"1.22","depth":1,"next":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"previous":{"title":"21.認証機能の追加","level":"1.21","depth":1,"path":"docs/20_accounts.md","ref":"docs/20_accounts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/21_comments.md","mtime":"2020-02-24T02:20:13.829Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"22.コメント機能の追加","level":"1.22","depth":1,"next":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"previous":{"title":"21.認証機能の追加","level":"1.21","depth":1,"path":"docs/20_accounts.md","ref":"docs/20_accounts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/21_comments.md","mtime":"2020-02-29T00:17:40.779Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

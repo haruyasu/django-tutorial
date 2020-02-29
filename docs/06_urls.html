@@ -562,17 +562,17 @@ urlpatterns = [
 </code></pre>
 <h2 id="blog&#x306E;url&#x8FFD;&#x52A0;">blog&#x306E;URL&#x8FFD;&#x52A0;</h2>
 <p>blog&#x306E;&#x4E0B;&#x306B;&#x3001;urls.py&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&#x306B;view&#x306E;post_list&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&#x306B;view&#x306E;PostListView&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x305F;&#x6642;&#x306B;&#x3001;post_list&#x3092;&#x307F;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/urls.py</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path
-<span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views
+<span class="hljs-keyword">from</span> blog <span class="hljs-keyword">import</span> views
 
 urlpatterns = [
-    path(<span class="hljs-string">&apos;&apos;</span>, views.post_list, name=<span class="hljs-string">&apos;post_list&apos;</span>),
+    path(<span class="hljs-string">&apos;&apos;</span>, views.PostListView.as_view(), name=<span class="hljs-string">&apos;post_list&apos;</span>),
 ]
 </code></pre>
-<p>&#x6B21;&#x306F;&#x3001;view&#x306E;post_list&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6B21;&#x306F;&#x3001;view&#x306E;PostListView&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 
                             </div>
                             
@@ -609,7 +609,7 @@ urlpatterns = [
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 22nd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -648,7 +648,7 @@ urlpatterns = [
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"7.URLの作成","level":"1.7","depth":1,"next":{"title":"8.Viewの作成","level":"1.8","depth":1,"path":"docs/07_views.md","ref":"docs/07_views.md","articles":[]},"previous":{"title":"6.管理画面の作成","level":"1.6","depth":1,"path":"docs/05_admin.md","ref":"docs/05_admin.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/06_urls.md","mtime":"2020-02-22T08:24:36.316Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"7.URLの作成","level":"1.7","depth":1,"next":{"title":"8.Viewの作成","level":"1.8","depth":1,"path":"docs/07_views.md","ref":"docs/07_views.md","articles":[]},"previous":{"title":"6.管理画面の作成","level":"1.6","depth":1,"path":"docs/05_admin.md","ref":"docs/05_admin.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/06_urls.md","mtime":"2020-02-28T23:08:35.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

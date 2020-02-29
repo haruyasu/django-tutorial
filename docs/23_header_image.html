@@ -604,26 +604,7 @@ urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
 <pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostForm</span><span class="hljs-params">(forms.ModelForm)</span>:</span>
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
     model = Post
-    fields = (<span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>, <span class="hljs-string">&apos;image&apos;</span>)&#x3000;<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
-</code></pre>
-<h3 id="&#x753B;&#x50CF;&#x306E;view&#x3092;&#x8FFD;&#x52A0;">&#x753B;&#x50CF;&#x306E;view&#x3092;&#x8FFD;&#x52A0;</h3>
-<p>image&#x3092;post&#x306E;view&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>request.FILES[&apos;image&apos;]&#x3067;&#x753B;&#x50CF;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>blog/forms.py</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_new</span><span class="hljs-params">(request)</span>:</span>
-  <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:
-    form = PostForm(request.POST)
-    <span class="hljs-keyword">if</span> form.is_valid():
-      post = form.save(commit=<span class="hljs-keyword">False</span>)
-      post.image = request.FILES[<span class="hljs-string">&apos;image&apos;</span>]&#x3000;<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_edit</span><span class="hljs-params">(request, pk)</span>:</span>
-  post = get_object_or_404(Post, pk=pk)
-  <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:
-    form = PostForm(request.POST, instance=post)
-    <span class="hljs-keyword">if</span> form.is_valid():
-      post = form.save(commit=<span class="hljs-keyword">False</span>)
-      post.image = request.FILES[<span class="hljs-string">&apos;image&apos;</span>]&#x3000;<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+    fields = (<span class="hljs-string">&apos;author&apos;</span>, <span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>, <span class="hljs-string">&apos;image&apos;</span>)&#x3000;<span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
 </code></pre>
 <h3 id="&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x5909;&#x66F4;">&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x5909;&#x66F4;</h3>
 <p>&#x6295;&#x7A3F;&#x753B;&#x9762;&#x3067;&#x753B;&#x50CF;&#x3092;&#x6295;&#x7A3F;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -757,7 +738,7 @@ CLOUDINARY_STORAGE = {
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 25th 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -796,7 +777,7 @@ CLOUDINARY_STORAGE = {
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"next":{"title":"25.固定ページの追加","level":"1.25","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"previous":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/23_header_image.md","mtime":"2020-02-25T13:35:40.652Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"next":{"title":"25.固定ページの追加","level":"1.25","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"previous":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/23_header_image.md","mtime":"2020-02-29T00:25:06.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

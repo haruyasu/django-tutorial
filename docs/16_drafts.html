@@ -549,10 +549,6 @@
                             <div class="gb-markdown book-page-inner">
                                 <h1 id="&#x4E0B;&#x66F8;&#x304D;&#x6A5F;&#x80FD;&#x306E;&#x8FFD;&#x52A0;">&#x4E0B;&#x66F8;&#x304D;&#x6A5F;&#x80FD;&#x306E;&#x8FFD;&#x52A0;</h1>
 <p>&#x4ECA;&#x307E;&#x3067;&#x306F;&#x6295;&#x7A3F;&#x3059;&#x308B;&#x3068;&#x3059;&#x3050;&#x306B;&#x516C;&#x958B;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x4E0B;&#x66F8;&#x304D;&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>blog/views.py&#x306E;post_new&#x95A2;&#x6570;&#x3068;post_edit&#x95A2;&#x6570;&#x306B;&#x3042;&#x308B;post.published_date&#x3092;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>blog/views.py</p>
-<pre><code class="lang-python">post.published_date = timezone.now() <span class="hljs-comment"># &#x524A;&#x9664;</span>
-</code></pre>
 <h2 id="draft&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x4F5C;&#x6210;">Draft&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>&#x30CA;&#x30D3;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306B;Draft&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/templates/blog/base.html</p>
@@ -563,15 +559,18 @@
 <h2 id="&#x4E0B;&#x66F8;&#x304D;&#x306E;url&#x3092;&#x4F5C;&#x6210;">&#x4E0B;&#x66F8;&#x304D;&#x306E;url&#x3092;&#x4F5C;&#x6210;</h2>
 <p>url&#x306F;drafts/&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/urls.py</p>
-<pre><code class="lang-python">path(<span class="hljs-string">&apos;drafts/&apos;</span>, views.post_draft_list, name=<span class="hljs-string">&apos;post_draft_list&apos;</span>),
+<pre><code class="lang-python">  path(<span class="hljs-string">&apos;drafts/&apos;</span>, views.DraftListView.as_view(), name=<span class="hljs-string">&apos;post_draft_list&apos;</span>),
 </code></pre>
 <h2 id="&#x4E0B;&#x66F8;&#x304D;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x4E0B;&#x66F8;&#x304D;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h2>
 <p>&#x4E0B;&#x66F8;&#x304D;&#x306E;view&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_draft_list</span><span class="hljs-params">(request)</span>:</span>
-  posts = Post.objects.filter(
-      published_date__isnull=<span class="hljs-keyword">True</span>).order_by(<span class="hljs-string">&apos;created_date&apos;</span>)
-  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_draft_list.html&apos;</span>, {<span class="hljs-string">&apos;posts&apos;</span>: posts})
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DraftListView</span><span class="hljs-params">(LoginRequiredMixin, ListView)</span>:</span>
+  login_url = <span class="hljs-string">&apos;/login/&apos;</span>
+  template_name = <span class="hljs-string">&apos;blog/post_draft_list.html&apos;</span>
+  model = Post
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_queryset</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> Post.objects.filter(published_date__isnull=<span class="hljs-keyword">True</span>).order_by(<span class="hljs-string">&apos;created_date&apos;</span>)
 </code></pre>
 <h2 id="&#x4E0B;&#x66F8;&#x304D;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;">&#x4E0B;&#x66F8;&#x304D;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>post_draft_list.html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3001;&#x4E0B;&#x66F8;&#x304D;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -585,7 +584,7 @@
 {% endblock %}
 
 {% block content %}
-  {% for post in posts %}
+  {% for post in post_list %}
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-preview&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;post_detail&apos; pk=post.pk %}&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-title&quot;</span>&gt;</span>
@@ -638,7 +637,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 22nd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -677,7 +676,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"17.下書き機能の追加","level":"1.17","depth":1,"next":{"title":"18.公開機能の追加","level":"1.18","depth":1,"path":"docs/17_publish.md","ref":"docs/17_publish.md","articles":[]},"previous":{"title":"16.セキュリティ対策","level":"1.16","depth":1,"path":"docs/15_security.md","ref":"docs/15_security.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/16_drafts.md","mtime":"2020-02-22T08:28:18.704Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"17.下書き機能の追加","level":"1.17","depth":1,"next":{"title":"18.公開機能の追加","level":"1.18","depth":1,"path":"docs/17_publish.md","ref":"docs/17_publish.md","articles":[]},"previous":{"title":"16.セキュリティ対策","level":"1.16","depth":1,"path":"docs/15_security.md","ref":"docs/15_security.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/16_drafts.md","mtime":"2020-02-29T01:44:10.203Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

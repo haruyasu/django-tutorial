@@ -548,16 +548,55 @@
                             
                             <div class="gb-markdown book-page-inner">
                                 <h1 id="view&#x306E;&#x4F5C;&#x6210;">View&#x306E;&#x4F5C;&#x6210;</h1>
-<p>&#x5148;&#x7A0B;&#x3001;&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x3001;view&#x306E;post_list&#x3092;&#x307F;&#x308B;&#x3088;&#x3046;&#x306B;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x306E;&#x3067;&#x3001;view&#x3067;post_list&#x95A2;&#x6570;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>return&#x306B;render&#x95A2;&#x6570;&#x3092;&#x30B3;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3001;&#x3069;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306E;&#x304B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x3046;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;url&#x2192;view&#x2192;template&#x306E;&#x6D41;&#x308C;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x5148;&#x7A0B;&#x3001;&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x3001;view&#x306E;PostListView&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x306E;&#x3067;&#x3001;view&#x306B;PostListView&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6295;&#x7A3F;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x8868;&#x793A;&#x3057;&#x305F;&#x3044;&#x306E;&#x3067;&#x3001;&#x5F15;&#x6570;&#x306B;&#x30AF;&#x30E9;&#x30B9;&#x30D9;&#x30FC;&#x30B9;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x3067;&#x3042;&#x308B;ListView&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30AF;&#x30E9;&#x30B9;&#x30D9;&#x30FC;&#x30B9;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x3068;&#x306F;&#xFF1F;">&#x30AF;&#x30E9;&#x30B9;&#x30D9;&#x30FC;&#x30B9;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x3068;&#x306F;&#xFF1F;</h2>
+<p>&#x30AF;&#x30E9;&#x30B9;&#x30D9;&#x30FC;&#x30B9;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x306F;Django&#x306E;&#x5F37;&#x529B;&#x306A;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x8A00;&#x8A9E;&#x3067;&#x3059;&#x3002;</p>
+<p><a href="https://docs.djangoproject.com/ja/2.2/topics/class-based-views/" target="_blank">https://docs.djangoproject.com/ja/2.2/topics/class-based-views/</a></p>
+<p>&#x3053;&#x308C;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x3001;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x91CF;&#x304C;&#x6E1B;&#x308A;&#x3001;&#x7C21;&#x5358;&#x306B;View&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30AF;&#x30E9;&#x30B9;&#x30D9;&#x30FC;&#x30B9;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x306E;&#x7A2E;&#x985E;">&#x30AF;&#x30E9;&#x30B9;&#x30D9;&#x30FC;&#x30B9;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x306E;&#x7A2E;&#x985E;</h2>
+<p>django.views.generic&#x306B;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30D3;&#x30E5;&#x30FC;&#x304C;&#x6E96;&#x5099;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;import&#x3057;&#x3066;&#x7D99;&#x627F;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>TemplateView<ul>
+<li>&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3001;&#x4F55;&#x304B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;</li>
+</ul>
+</li>
+<li>ListView<ul>
+<li>&#x4E00;&#x89A7;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;</li>
+</ul>
+</li>
+<li>DetailView<ul>
+<li>&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;</li>
+</ul>
+</li>
+<li>CreateView<ul>
+<li>&#x65B0;&#x3057;&#x304F;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;</li>
+</ul>
+</li>
+<li>UpdateView<ul>
+<li>&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;</li>
+</ul>
+</li>
+<li>DeleteView<ul>
+<li>&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x524A;&#x9664;&#x3059;&#x308B;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x7528;">&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x7528;</h2>
+<p>&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x95A2;&#x6570;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>get_context_data&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x3001;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x3044;&#x5909;&#x6570;&#x306B;&#x5909;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x666E;&#x6BB5;&#x306F;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3001;&#x5909;&#x66F4;&#x3057;&#x305F;&#x3044;&#x6642;&#x3060;&#x3051;&#x5024;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x72EC;&#x81EA;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x306E;&#x540D;&#x524D;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;template_name&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="view&#x3092;&#x4F5C;&#x6210;">View&#x3092;&#x4F5C;&#x6210;</h2>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> blog.models <span class="hljs-keyword">import</span> Post
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> (ListView)
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_list</span><span class="hljs-params">(request)</span>:</span>
-    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_list.html&apos;</span>, {})
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostListView</span><span class="hljs-params">(ListView)</span>:</span>
+  model = Post
+  template_name = <span class="hljs-string">&quot;blog/post_list.html&quot;</span>
 </code></pre>
-<p>&#x6B21;&#x306F;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x3001;post_list.html&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6B21;&#x306F;&#x3001;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x306E;post_list.html&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 
                             </div>
                             
@@ -594,7 +633,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 22nd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -633,7 +672,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"8.Viewの作成","level":"1.8","depth":1,"next":{"title":"9.HTMLの作成","level":"1.9","depth":1,"path":"docs/08_html.md","ref":"docs/08_html.md","articles":[]},"previous":{"title":"7.URLの作成","level":"1.7","depth":1,"path":"docs/06_urls.md","ref":"docs/06_urls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/07_views.md","mtime":"2020-02-22T08:24:40.324Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"8.Viewの作成","level":"1.8","depth":1,"next":{"title":"9.HTMLの作成","level":"1.9","depth":1,"path":"docs/08_html.md","ref":"docs/08_html.md","articles":[]},"previous":{"title":"7.URLの作成","level":"1.7","depth":1,"path":"docs/06_urls.md","ref":"docs/06_urls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/07_views.md","mtime":"2020-02-29T01:51:51.343Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

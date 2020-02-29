@@ -556,17 +556,48 @@
 </code></pre>
 <h2 id="&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;url&#x3092;&#x4F5C;&#x6210;">&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;url&#x3092;&#x4F5C;&#x6210;</h2>
 <p>blog/urls.py</p>
-<pre><code class="lang-python">path(<span class="hljs-string">&apos;post/&lt;pk&gt;/remove/&apos;</span>, views.post_remove, name=<span class="hljs-string">&apos;post_remove&apos;</span>),
+<pre><code class="lang-python">  path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/remove/&apos;</span>, views.PostDeleteView.as_view(), name=<span class="hljs-string">&apos;post_remove&apos;</span>),
 </code></pre>
 <h2 id="&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h2>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_remove</span><span class="hljs-params">(request, pk)</span>:</span>
-  post = get_object_or_404(Post, pk=pk)
-  post.delete()
-  <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&apos;post_list&apos;</span>)
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> reverse_lazy
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostDeleteView</span><span class="hljs-params">(DeleteView)</span>:</span>
+  model = Post
+  template_name = <span class="hljs-string">&quot;blog/post_confirm_delete.html&quot;</span>
+  success_url = reverse_lazy(<span class="hljs-string">&apos;post_list&apos;</span>)
+</code></pre>
+<h2 id="&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;">&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;</h2>
+<p>&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3057;&#x305F;&#x6642;&#x306E;&#x753B;&#x9762;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>post_confirm_delete.html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/templates/blog/post_confirm_delete.html</p>
+<pre><code class="lang-html">{% extends &apos;blog/base.html&apos; %}
+
+{% block header %}
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site-heading&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Post Delete<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% endblock %}
+
+{% block content %}
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row justify-content-center&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+    {% csrf_token %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-center&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ object }}&#x3092;&#x524A;&#x9664;&#x3057;&#x3066;&#x3082;&#x3088;&#x308D;&#x3057;&#x3044;&#x3067;&#x3059;&#x304B;&#xFF1F;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;save btn btn-danger&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% endblock %}
 </code></pre>
 <p>&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x3067;Delete&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3057;&#x3066;&#x3001;&#x6295;&#x7A3F;&#x304C;&#x524A;&#x9664;&#x3055;&#x308C;&#x308B;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p>&#x524A;&#x9664;&#x3055;&#x308C;&#x305F;&#x3089;&#x3001;&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>Delete&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3059;&#x3068;&#x524A;&#x9664;&#x78BA;&#x8A8D;&#x753B;&#x9762;&#x306B;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x524A;&#x9664;&#x78BA;&#x8A8D;&#x753B;&#x9762;&#x3067;Delete&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3059;&#x3068;&#x3001;&#x6295;&#x7A3F;&#x304C;&#x524A;&#x9664;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x308C;&#x3067;&#x3001;&#x6295;&#x7A3F;&#x3001;&#x7DE8;&#x96C6;&#x3001;&#x524A;&#x9664;&#x6A5F;&#x80FD;&#x304C;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 <p>&#x6B21;&#x306F;&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x3092;&#x5F37;&#x5316;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 
@@ -605,7 +636,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 22nd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -644,7 +675,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"19.削除機能の追加","level":"1.19","depth":1,"next":{"title":"20.セキュリティの強化","level":"1.20","depth":1,"path":"docs/19_login_required.md","ref":"docs/19_login_required.md","articles":[]},"previous":{"title":"18.公開機能の追加","level":"1.18","depth":1,"path":"docs/17_publish.md","ref":"docs/17_publish.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/18_delete.md","mtime":"2020-02-22T08:28:28.376Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"19.削除機能の追加","level":"1.19","depth":1,"next":{"title":"20.セキュリティの強化","level":"1.20","depth":1,"path":"docs/19_login_required.md","ref":"docs/19_login_required.md","articles":[]},"previous":{"title":"18.公開機能の追加","level":"1.18","depth":1,"path":"docs/17_publish.md","ref":"docs/17_publish.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/18_delete.md","mtime":"2020-02-29T01:51:00.543Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

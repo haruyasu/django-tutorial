@@ -565,18 +565,19 @@
 <p>URL&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/urls.py</p>
 <pre><code class="lang-python">urlpatterns = [
-    path(<span class="hljs-string">&apos;&apos;</span>, views.post_list, name=<span class="hljs-string">&apos;post_list&apos;</span>),
-    path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/&apos;</span>, views.post_detail, name=<span class="hljs-string">&apos;post_detail&apos;</span>),
+  path(<span class="hljs-string">&apos;&apos;</span>, views.PostListView.as_view(), name=<span class="hljs-string">&apos;post_list&apos;</span>),
+  path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/&apos;</span>, views.PostDetailView.as_view(), name=<span class="hljs-string">&apos;post_detail&apos;</span>),
 ]
 </code></pre>
 <h2 id="&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x306E;view&#x3092;&#x8FFD;&#x52A0;">&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x306E;View&#x3092;&#x8FFD;&#x52A0;</h2>
-<p>view.py&#x306B;post_detail&#x95A2;&#x6570;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>view.py&#x306B;PostDetailView&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render, get_object_or_404
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> (ListView, DetailView)
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_detail</span><span class="hljs-params">(request, pk)</span>:</span>
-    post = get_object_or_404(Post, pk=pk)
-    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_detail.html&apos;</span>, {<span class="hljs-string">&apos;post&apos;</span>: post})
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostDetailView</span><span class="hljs-params">(DetailView)</span>:</span>
+  model = Post
+  template_name = <span class="hljs-string">&quot;blog/post_detail.html&quot;</span>
 </code></pre>
 <h2 id="&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x8FFD;&#x52A0;">&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x8FFD;&#x52A0;</h2>
 <p>post_detail.html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -636,7 +637,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 23rd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -675,7 +676,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"14.アプリケーションの拡張","level":"1.14","depth":1,"next":{"title":"15.フォームの作成","level":"1.15","depth":1,"path":"docs/14_forms.md","ref":"docs/14_forms.md","articles":[]},"previous":{"title":"13.テンプレートの拡張","level":"1.13","depth":1,"path":"docs/12_template_extending.md","ref":"docs/12_template_extending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/13_application_extending.md","mtime":"2020-02-23T01:55:45.134Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"14.アプリケーションの拡張","level":"1.14","depth":1,"next":{"title":"15.フォームの作成","level":"1.15","depth":1,"path":"docs/14_forms.md","ref":"docs/14_forms.md","articles":[]},"previous":{"title":"13.テンプレートの拡張","level":"1.13","depth":1,"path":"docs/12_template_extending.md","ref":"docs/12_template_extending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/13_application_extending.md","mtime":"2020-02-29T01:49:46.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

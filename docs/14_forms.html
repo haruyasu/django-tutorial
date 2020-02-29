@@ -560,7 +560,7 @@
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostForm</span><span class="hljs-params">(forms.ModelForm)</span>:</span>
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
     model = Post
-    fields = (<span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>,)
+    fields = (<span class="hljs-string">&apos;author&apos;</span>, <span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>)
 </code></pre>
 <h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30DA;&#x30FC;&#x30B8;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x4F5C;&#x6210;">&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30DA;&#x30FC;&#x30B8;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>About&#x306E;&#x4E0B;&#x306B;Post&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -573,23 +573,25 @@
 <p>post/new/&#x306E;URL&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/urls.py</p>
 <pre><code class="lang-python">urlpatterns = [
-    path(<span class="hljs-string">&apos;&apos;</span>, views.post_list, name=<span class="hljs-string">&apos;post_list&apos;</span>),
-    path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/&apos;</span>, views.post_detail, name=<span class="hljs-string">&apos;post_detail&apos;</span>),
-    path(<span class="hljs-string">&apos;post/new/&apos;</span>, views.post_new, name=<span class="hljs-string">&apos;post_new&apos;</span>),
+  path(<span class="hljs-string">&apos;&apos;</span>, views.PostListView.as_view(), name=<span class="hljs-string">&apos;post_list&apos;</span>),
+  path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/&apos;</span>, views.PostDetailView.as_view(), name=<span class="hljs-string">&apos;post_detail&apos;</span>),
+  path(<span class="hljs-string">&apos;post/new/&apos;</span>, views.CreatePostView.as_view(), name=<span class="hljs-string">&apos;post_new&apos;</span>),
 ]
 </code></pre>
 <h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30DA;&#x30FC;&#x30B8;&#x306E;view&#x3092;&#x4F5C;&#x6210;">&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30DA;&#x30FC;&#x30B8;&#x306E;View&#x3092;&#x4F5C;&#x6210;</h2>
 <p>view&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> .forms <span class="hljs-keyword">import</span> PostForm
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> blog.forms <span class="hljs-keyword">import</span> PostForm
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> (ListView, DetailView, CreateView)
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_new</span><span class="hljs-params">(request)</span>:</span>
-  form = PostForm()
-  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_edit.html&apos;</span>, {<span class="hljs-string">&apos;form&apos;</span>: form})
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreatePostView</span><span class="hljs-params">(CreateView)</span>:</span>
+  template_name = <span class="hljs-string">&quot;blog/post_form.html&quot;</span>
+  form_class = PostForm
+  model = Post
 </code></pre>
 <h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30DA;&#x30FC;&#x30B8;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;">&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30DA;&#x30FC;&#x30B8;&#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x4F5C;&#x6210;</h2>
-<p>post_edit.html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>blog/templates/blog/post_edit.html</p>
+<p>post_form.html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/templates/blog/post_form.html</p>
 <pre><code class="lang-html">{% extends &apos;blog/base.html&apos; %}
 
 {% block header %}
@@ -611,23 +613,13 @@
 <h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x4FDD;&#x5B58;&#x52D5;&#x4F5C;&#x3092;&#x4F5C;&#x6210;">&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x4FDD;&#x5B58;&#x52D5;&#x4F5C;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>&#x4FDD;&#x5B58;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x3001;&#x8A73;&#x7D30;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x79FB;&#x52D5;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x4FEE;&#x6B63;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>post_detail&#x306B;&#x30EA;&#x30C0;&#x30A4;&#x30EC;&#x30AF;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x6642;&#x306B;&#x65B0;&#x3057;&#x3044;&#x5185;&#x5BB9;&#x3092;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066;&#x6E21;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>view&#x306E;post_new&#x95A2;&#x6570;&#x3092;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<p>view&#x306E;CreatePostView&#x95A2;&#x6570;&#x3092;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> redirect
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_new</span><span class="hljs-params">(request)</span>:</span>
-  <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:
-    form = PostForm(request.POST)
-    <span class="hljs-keyword">if</span> form.is_valid():
-      post = form.save(commit=<span class="hljs-keyword">False</span>)
-      post.author = request.user
-      post.published_date = timezone.now()
-      post.save()
-      <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&apos;post_detail&apos;</span>, pk=post.pk)
-  <span class="hljs-keyword">else</span>:
-    form = PostForm()
-  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_edit.html&apos;</span>, {<span class="hljs-string">&apos;form&apos;</span>: form})
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreatePostView</span><span class="hljs-params">(CreateView)</span>:</span>
+  template_name = <span class="hljs-string">&quot;blog/post_form.html&quot;</span>
+  redirect_field_name = <span class="hljs-string">&apos;blog/post_detail.html&apos;</span>
+  form_class = PostForm
+  model = Post
 </code></pre>
 <h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x7DE8;&#x96C6;&#x52D5;&#x4F5C;&#x3092;&#x4F5C;&#x6210;">&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x7DE8;&#x96C6;&#x52D5;&#x4F5C;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>&#x6295;&#x7A3F;&#x3055;&#x308C;&#x305F;&#x5185;&#x5BB9;&#x3092;&#x7DE8;&#x96C6;&#x3059;&#x308B;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -644,29 +636,22 @@
 <p>Edit&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x62BC;&#x3057;&#x305F;&#x5F8C;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/urls.py</p>
 <pre><code class="lang-python">urlpatterns = [
-    path(<span class="hljs-string">&apos;&apos;</span>, views.post_list, name=<span class="hljs-string">&apos;post_list&apos;</span>),
-    path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/&apos;</span>, views.post_detail, name=<span class="hljs-string">&apos;post_detail&apos;</span>),
-    path(<span class="hljs-string">&apos;post/new/&apos;</span>, views.post_new, name=<span class="hljs-string">&apos;post_new&apos;</span>),
-    path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/edit/&apos;</span>, views.post_edit, name=<span class="hljs-string">&apos;post_edit&apos;</span>), <span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+  ...
+  path(<span class="hljs-string">&apos;post/&lt;int:pk&gt;/edit/&apos;</span>, views.PostUpdateView.as_view(), name=<span class="hljs-string">&apos;post_edit&apos;</span>),
 ]
 </code></pre>
 <h3 id="edit&#x306E;view&#x3092;&#x4F5C;&#x6210;">Edit&#x306E;View&#x3092;&#x4F5C;&#x6210;</h3>
-<p>post_edit&#x95A2;&#x6570;&#x3092;view&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>post_form&#x95A2;&#x6570;&#x3092;view&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>post_new&#x3068;&#x306E;&#x9055;&#x3044;&#x306F;&#x3001;instance=post&#x3068;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x6E21;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/views.py</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_edit</span><span class="hljs-params">(request, pk)</span>:</span>
-  post = get_object_or_404(Post, pk=pk)
-  <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:
-    form = PostForm(request.POST, instance=post)
-    <span class="hljs-keyword">if</span> form.is_valid():
-      post = form.save(commit=<span class="hljs-keyword">False</span>)
-      post.author = request.user
-      post.published_date = timezone.now()
-      post.save()
-      <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&apos;post_detail&apos;</span>, pk=post.pk)
-  <span class="hljs-keyword">else</span>:
-    form = PostForm(instance=post)
-  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;blog/post_edit.html&apos;</span>, {<span class="hljs-string">&apos;form&apos;</span>: form})
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> (ListView, DetailView, CreateView, UpdateView)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostUpdateView</span><span class="hljs-params">(UpdateView)</span>:</span>
+  template_name = <span class="hljs-string">&quot;blog/post_form.html&quot;</span>
+  redirect_field_name = <span class="hljs-string">&apos;blog/post_detail.html&apos;</span>
+  form_class = PostForm
+  model = Post
 </code></pre>
 <p>&#x3053;&#x308C;&#x3067;&#x3001;&#x30D6;&#x30ED;&#x30B0;&#x6295;&#x7A3F;&#x3001;&#x7DE8;&#x96C6;&#x304C;&#x3067;&#x304D;&#x308B;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x5B8C;&#x6210;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 
@@ -705,7 +690,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 22nd 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -744,7 +729,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"15.フォームの作成","level":"1.15","depth":1,"next":{"title":"16.セキュリティ対策","level":"1.16","depth":1,"path":"docs/15_security.md","ref":"docs/15_security.md","articles":[]},"previous":{"title":"14.アプリケーションの拡張","level":"1.14","depth":1,"path":"docs/13_application_extending.md","ref":"docs/13_application_extending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/14_forms.md","mtime":"2020-02-22T08:28:01.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"15.フォームの作成","level":"1.15","depth":1,"next":{"title":"16.セキュリティ対策","level":"1.16","depth":1,"path":"docs/15_security.md","ref":"docs/15_security.md","articles":[]},"previous":{"title":"14.アプリケーションの拡張","level":"1.14","depth":1,"path":"docs/13_application_extending.md","ref":"docs/13_application_extending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/14_forms.md","mtime":"2020-02-29T01:50:30.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 

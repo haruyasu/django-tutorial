@@ -551,14 +551,45 @@
 <p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x3060;&#x3051;&#x304C;&#x6295;&#x7A3F;&#x3001;&#x7DE8;&#x96C6;&#x3001;&#x524A;&#x9664;&#x3001;&#x516C;&#x958B;&#x3092;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x4FEE;&#x6B63;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x5404;&#x30DC;&#x30BF;&#x30F3;&#x306F;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3060;&#x3051;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x5236;&#x9650;&#x3092;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;view&#x306E;&#x4E2D;&#x306B;&#x3082;&#x5236;&#x5FA1;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="view&#x306B;&#x8FFD;&#x8A18;">view&#x306B;&#x8FFD;&#x8A18;</h2>
-<p>@login_required&#x3092;&#x8FFD;&#x8A18;&#x3059;&#x308B;&#x3068;&#x3001;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x3060;&#x3051;&#x306B;&#x5236;&#x9650;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x3060;&#x3051;&#x306B;&#x5236;&#x9650;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>&#x6C4E;&#x7528;&#x30D3;&#x30E5;&#x30FC;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;<ul>
+<li>LoginRequiredMixin&#x3092;&#x7B2C;&#x4E00;&#x5F15;&#x6570;&#x306B;&#x6307;&#x5B9A;</li>
+</ul>
+</li>
+<li>&#x30AA;&#x30EA;&#x30B8;&#x30CA;&#x30EB;&#x95A2;&#x6570;<ul>
+<li>@login_required&#x3092;&#x30C7;&#x30B3;&#x30EC;&#x30FC;&#x30BF;&#x30FC;&#x3068;&#x3057;&#x3066;&#x8FFD;&#x8A18;</li>
+</ul>
+</li>
+</ul>
 <p>blog/views.py</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> django.contrib.auth.decorators <span class="hljs-keyword">import</span> login_required
-</code></pre>
-<p>post_new, post_edit, post_draft_list, post_remove, post_publish&#x95A2;&#x6570;&#x306E;&#x4E0A;&#x306B;&#x30C7;&#x30B3;&#x30EC;&#x30FC;&#x30BF;&#x30FC;&#x3092;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-python"><span class="hljs-meta">@login_required</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_new</span><span class="hljs-params">(request)</span>:</span>
-    [...]
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreatePostView</span><span class="hljs-params">(LoginRequiredMixin, CreateView)</span>:</span>
+  login_url = <span class="hljs-string">&apos;/login/&apos;</span>
+  ...
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostUpdateView</span><span class="hljs-params">(LoginRequiredMixin, UpdateView)</span>:</span>
+  login_url = <span class="hljs-string">&apos;/login/&apos;</span>
+  ...
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DraftListView</span><span class="hljs-params">(LoginRequiredMixin, ListView)</span>:</span>
+  login_url = <span class="hljs-string">&apos;/login/&apos;</span>
+  ...
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostDeleteView</span><span class="hljs-params">(LoginRequiredMixin, DeleteView)</span>:</span>
+  ...
+
+<span class="hljs-meta">@login_required</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_publish</span><span class="hljs-params">(request, pk)</span>:</span>
+  ...
+
+<span class="hljs-meta">@login_required</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_comment</span><span class="hljs-params">(request, pk)</span>:</span>
+  ...
 </code></pre>
 <p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x3060;&#x3051;&#x304C;&#x6295;&#x7A3F;&#x3001;&#x7DE8;&#x96C6;&#x3001;&#x524A;&#x9664;&#x3001;&#x516C;&#x958B;&#x3092;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 <p>&#x6B21;&#x306F;&#x3001;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3001;&#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&#x3001;&#x30B5;&#x30A4;&#x30F3;&#x30A4;&#x30F3;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
@@ -598,7 +629,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 24th 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -637,7 +668,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"20.セキュリティの強化","level":"1.20","depth":1,"next":{"title":"21.認証機能の追加","level":"1.21","depth":1,"path":"docs/20_accounts.md","ref":"docs/20_accounts.md","articles":[]},"previous":{"title":"19.削除機能の追加","level":"1.19","depth":1,"path":"docs/18_delete.md","ref":"docs/18_delete.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/19_login_required.md","mtime":"2020-02-24T02:21:48.150Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-27T13:30:24.272Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"20.セキュリティの強化","level":"1.20","depth":1,"next":{"title":"21.認証機能の追加","level":"1.21","depth":1,"path":"docs/20_accounts.md","ref":"docs/20_accounts.md","articles":[]},"previous":{"title":"19.削除機能の追加","level":"1.19","depth":1,"path":"docs/18_delete.md","ref":"docs/18_delete.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/19_login_required.md","mtime":"2020-02-29T00:14:12.947Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 
