@@ -1,6 +1,47 @@
 # フォームの作成
 
-フォームを作成して、Web上で記事を追加したり、編集したりします。
+フォームは、フォーム画面で入力された値をフォームオブジェクトに変換、保持します。
+
+入力値のチェックもおこないます。
+
+https://docs.djangoproject.com/ja/2.2/ref/forms/fields/
+
+## フォームの定義
+
+フォームはdjango.forms.ModelFormクラスを継承して定義します。
+
+django.forms.Formを継承する場合もあります。
+
+## フォームのフィールドクラス
+
+フィールドクラスにはウィジェットが設定されています。
+
+ウィジェットはフィールドのタイプやデザインをまとめたものです。
+
+* CharField
+  * TextInput
+* IntegerField
+  * NumberInput
+* ChoiceField
+  * Select
+* DataField
+  * DataInput
+* DataTimeField
+  * DataTimeInput
+* EmailField
+  * EmailInput
+* FileField
+  * ClearableFileInput
+* ImageField
+  * ClearableFileInput
+
+## バリデーション追加
+
+* validatorsを使用
+* clean_<フィールド名>メソッドを使用
+* cleanメソッドを使用
+
+## フォームを作成
 
 forms.pyファイルを追加します。
 
