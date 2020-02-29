@@ -2,5 +2,32 @@
   "title": "Django Tutorial",
   "description": "Django Tutorial",
   "language": "ja",
-  "plugins": ["hide-published-with", "theme-official"]
+  "plugins": [
+    "custom-favicon",
+    "insert-logo",
+    "-sharing",
+    "prism",
+    "-highlight",
+    "copy-code-button",
+    "hide-published-with",
+    "anchors",
+    "back-to-top-button",
+    "expand-active-chapter",
+    "collapsible-chapters"
+  ],
+  "pluginsConfig": {
+    "favicon": "/img/favicon.ico",
+    "insert-logo": {
+      "url": "/img/logo.png",
+      "style": "background: none;"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-tomorrow.css"
+      ]
+    }
+  },
+  "styles": {
+    "website": "/styles/website.css"
+  }
 }
