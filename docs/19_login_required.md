@@ -9,9 +9,9 @@
 ログインしている人だけに制限できます。
 
 * 汎用ビューを使用している場合は
- * LoginRequiredMixinを第一引数に指定
+  * LoginRequiredMixinを第一引数に指定
 * オリジナル関数
- * @login_requiredをデコレーターとして追記
+  * @login_requiredをデコレーターとして追記
 
 blog/views.py
 ```python
