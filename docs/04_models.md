@@ -5,7 +5,7 @@
 
 クラスを追加し、各プロパティを定義していきます。
 
-ForeignKey、CharField、TextField、DateTimeFieldなどのフィールド解説は公式ドキュメントを参考にしてみて下さい。
+ForeignKey、CharField、TextField、DateTimeFieldなどのフィールド解説は公式ドキュメントを参考にして下さい。
 
 https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield
 
@@ -14,14 +14,12 @@ https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield
 * TextField：多量のテキストのフィールド
 * DateTimeField：日付と時刻のフィールド
 
-分かりやすくまとまっています。
-
-https://qiita.com/nachashin/items/f768f0d437e0042dd4b3
-
+blog/models.py
 ```python
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 
 class Post(models.Model):
@@ -34,6 +32,9 @@ class Post(models.Model):
   def publish(self):
     self.published_date = timezone.now()
     self.save()
+
+  def get_absolute_url(self):
+    return reverse("post_detail", kwargs={'pk':self.pk})
 
   def __str__(self):
     return self.title

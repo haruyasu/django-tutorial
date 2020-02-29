@@ -86,7 +86,7 @@ blog/templates/blog/post_list.html
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        {% for post in posts %}
+        {% for post in post_list %}
         <div class="post-preview">
           <h2 class="post-title">
             {{ post.title }}

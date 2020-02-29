@@ -28,22 +28,23 @@ URLのパターンを指定します。
 blog/urls.py
 ```python
 urlpatterns = [
-    path('', views.post_list, name='post_list'),
-    path('post/<int:pk>/', views.post_detail, name='post_detail'),
+  path('', views.PostListView.as_view(), name='post_list'),
+  path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
 ]
 ```
 
 ## 詳細ページのViewを追加
 
-view.pyにpost_detail関数を追加します。
+view.pyにPostDetailViewクラスを追加します。
 
 blog/views.py
 ```python
-from django.shortcuts import render, get_object_or_404
+from django.views.generic import (ListView, DetailView)
 
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+
+class PostDetailView(DetailView):
+  model = Post
+  template_name = "blog/post_detail.html"
 ```
 
 ## 詳細ページのテンプレートを追加

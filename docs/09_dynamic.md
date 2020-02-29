@@ -2,11 +2,7 @@
 
 動的に変わるデータはViewで処理をします。
 
-追加したmodelをインポートしましょう。
-
-今回はPostをインポートします。
-
-そして、クエリセットを作成して、posts変数に代入します。
+そして、get_queryset関数の中で、クエリをセットします。
 
 ## クエリとは
 
@@ -19,22 +15,19 @@
 公式ドキュメント
 https://docs.djangoproject.com/ja/2.2/topics/db/queries/
 
-分かりやすく解説されています。
-https://qiita.com/okoppe8/items/66a8747cf179a538355b
-
 blog/views.py
 ```python
-from django.shortcuts import render
 from django.utils import timezone
-from .models import Post
+from blog.models import Post
+from django.views.generic import (ListView)
 
-def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+
+class PostListView(ListView):
+  model = Post
+  template_name = "blog/post_list.html"
+
+  def get_queryset(self):
+    return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 ```
-renderの最後の引数に{}で囲われたクエリセットを指定します。
 
-この引数の情報がテンプレートが表示することができます。
-
-シングルクォーテーションで囲われたpostsは名前で値がクエリセットのpostsです。
-
+ここでは、filter関数を使用して、公開順に投稿を並べるように指定しています。

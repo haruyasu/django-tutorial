@@ -21,18 +21,18 @@ urlpatterns = [
 
 blogの下に、urls.pyファイルを作成します。
 
-トップページにviewのpost_listを割り当てます。
+トップページにviewのPostListViewを割り当てます。
 
 トップページにアクセスした時に、post_listをみることになります。
 
 blog/urls.py
 ```python
 from django.urls import path
-from . import views
+from blog import views
 
 urlpatterns = [
-    path('', views.post_list, name='post_list'),
+    path('', views.PostListView.as_view(), name='post_list'),
 ]
 ```
 
-次は、viewのpost_listを作ります。
+次は、viewのPostListViewを作ります。

@@ -2,13 +2,13 @@
 
 Djangoではテンプレートが使用できます。
 
-二重括弧\{\{\}\}で囲うことによって、viewsのreturnの最後の引数で指定した値を使用することができます。
+二重括弧\{\{\}\}で囲うことによって、viewsで指定した情報を使用することができます。
 
-今回の場合はpostsです。
+今回の場合はデフォルト値のpost_listを使用して、投稿のリストを表示します。
 
-forと指定することで、ループを使うことができます。
+ListViewを使用した場合、モデル名に「_list」を付けた名前がデフォルトで使用されます。
 
-postsのリストをループして一つずつ表示します。
+forと指定することで、post_listのリストをループして一つずつ表示することができます。
 
 blog/templates/blog/post_list.html
 ```html
@@ -24,7 +24,7 @@ blog/templates/blog/post_list.html
     <h1><a href="/">Django Startup Template</a></h1>
   </div>
 
-  {% for post in posts %}
+  {% for post in post_list %}
     <div>
       <p>published: {{ post.published_date }}</p>
       <h2><a href="">{{ post.title }}</a></h2>

@@ -101,31 +101,7 @@ blog/forms.py
 class PostForm(forms.ModelForm):
   class Meta:
     model = Post
-    fields = ('title', 'text', 'image')　# 追加
-```
-
-### 画像のviewを追加
-
-imageをpostのviewに追加します。
-
-request.FILES['image']で画像ファイルを取得することができます。
-
-blog/forms.py
-```python
-def post_new(request):
-  if request.method == "POST":
-    form = PostForm(request.POST)
-    if form.is_valid():
-      post = form.save(commit=False)
-      post.image = request.FILES['image']　# 追加
-
-def post_edit(request, pk):
-  post = get_object_or_404(Post, pk=pk)
-  if request.method == "POST":
-    form = PostForm(request.POST, instance=post)
-    if form.is_valid():
-      post = form.save(commit=False)
-      post.image = request.FILES['image']　# 追加
+    fields = ('author', 'title', 'text', 'image')　# 追加
 ```
 
 ### テンプレートを変更

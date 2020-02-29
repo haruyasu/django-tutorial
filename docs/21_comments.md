@@ -17,6 +17,9 @@ class Comment(models.Model):
     self.approved_comment = True
     self.save()
 
+  def get_absolute_url(self):
+    return reverse("post_list")
+
   def __str__(self):
     return self.text
 ```
@@ -90,12 +93,6 @@ blog/forms.py
 from django import forms
 from .models import Post, Comment
 
-class PostForm(forms.ModelForm):
-  class Meta:
-    model = Post
-    fields = ('title', 'text',)
-
-
 class CommentForm(forms.ModelForm):
   class Meta:
     model = Comment
@@ -118,15 +115,16 @@ blog/templates/blog/post_detail.html
 
 blog/urls.py
 ```python
-path('post/<int:pk>/comment/', views.post_comment, name='post_comment'),
+  path('post/<int:pk>/comment/', views.post_comment, name='post_comment'),
 ```
 
 ### コメントのViewを作成
 
 blog/views.py
 ```python
-from .forms import PostForm, CommentForm
+from blog.forms import PostForm, CommentForm
 
+@login_required
 def post_comment(request, pk):
   post = get_object_or_404(Post, pk=pk)
   if request.method == "POST":
@@ -193,7 +191,7 @@ blog/urls.py
 
 blog/views.py
 ```python
-from .models import Post, Comment
+from blog.models import Post, Comment
 
 @login_required
 def comment_approve(request, pk):

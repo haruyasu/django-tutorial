@@ -17,15 +17,18 @@ html:blog/templates/blog/base.html
 
 blog/urls.py
 ```python
-  path('about/', views.about, name='about'),
+  path('about/', views.AboutView.as_view(), name='about'),
 ```
 
 ## Viewを追加
 
 blog/views.py
 ```python
-def about(request):
-  return render(request, 'page/about.html')
+from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
+
+
+class AboutView(TemplateView):
+  template_name = 'page/about.html'
 ```
 
 ## テンプレートを追加

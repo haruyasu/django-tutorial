@@ -72,7 +72,7 @@ blog/templates/blog/post_list.html
 {% endblock %}
 
 {% block content %}
-  {% for post in posts %}
+  {% for post in post_list %}
   <div class="post-preview">
     <h2 class="post-title">
       {{ post.title }}

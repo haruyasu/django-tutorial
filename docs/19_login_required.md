@@ -6,19 +6,42 @@
 
 ## viewに追記
 
-@login_requiredを追記すると、ログインしている人だけに制限できます。
+ログインしている人だけに制限できます。
+
+* 汎用ビューを使用している場合は
+ * LoginRequiredMixinを第一引数に指定
+* オリジナル関数
+ * @login_requiredをデコレーターとして追記
 
 blog/views.py
 ```python
 from django.contrib.auth.decorators import login_required
-```
 
-post_new, post_edit, post_draft_list, post_remove, post_publish関数の上にデコレーターを追記します。
+class CreatePostView(LoginRequiredMixin, CreateView):
+  login_url = '/login/'
+  ...
 
-```python
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+  login_url = '/login/'
+  ...
+
+
+class DraftListView(LoginRequiredMixin, ListView):
+  login_url = '/login/'
+  ...
+
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+  ...
+
 @login_required
-def post_new(request):
-    [...]
+def post_publish(request, pk):
+  ...
+
+@login_required
+def post_comment(request, pk):
+  ...
 ```
 
 ログインしている人だけが投稿、編集、削除、公開をできるようになりました。

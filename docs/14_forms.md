@@ -19,7 +19,7 @@ from .models import Post
 class PostForm(forms.ModelForm):
   class Meta:
     model = Post
-    fields = ('title', 'text',)
+    fields = ('author', 'title', 'text')
 ```
 
 ## フォームページのリンクを作成
@@ -40,9 +40,9 @@ post/new/のURLを追加します。
 blog/urls.py
 ```python
 urlpatterns = [
-    path('', views.post_list, name='post_list'),
-    path('post/<int:pk>/', views.post_detail, name='post_detail'),
-    path('post/new/', views.post_new, name='post_new'),
+  path('', views.PostListView.as_view(), name='post_list'),
+  path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
+  path('post/new/', views.CreatePostView.as_view(), name='post_new'),
 ]
 ```
 
@@ -52,18 +52,20 @@ viewに追加してテンプレートを指定します。
 
 blog/views.py
 ```python
-from .forms import PostForm
+from blog.forms import PostForm
+from django.views.generic import (ListView, DetailView, CreateView)
 
-def post_new(request):
-  form = PostForm()
-  return render(request, 'blog/post_edit.html', {'form': form})
+class CreatePostView(CreateView):
+  template_name = "blog/post_form.html"
+  form_class = PostForm
+  model = Post
 ```
 
 ## フォームページのテンプレートを作成
 
-post_edit.htmlファイルを追加します。
+post_form.htmlファイルを追加します。
 
-blog/templates/blog/post_edit.html
+blog/templates/blog/post_form.html
 ```html
 {% extends 'blog/base.html' %}
 
@@ -90,26 +92,15 @@ blog/templates/blog/post_edit.html
 
 post_detailにリダイレクトします。
 
-この時に新しい内容を引数として渡します。
-
-viewのpost_new関数を書き換えます。
+viewのCreatePostView関数を書き換えます。
 
 blog/views.py
 ```python
-from django.shortcuts import redirect
-
-def post_new(request):
-  if request.method == "POST":
-    form = PostForm(request.POST)
-    if form.is_valid():
-      post = form.save(commit=False)
-      post.author = request.user
-      post.published_date = timezone.now()
-      post.save()
-      return redirect('post_detail', pk=post.pk)
-  else:
-    form = PostForm()
-  return render(request, 'blog/post_edit.html', {'form': form})
+class CreatePostView(CreateView):
+  template_name = "blog/post_form.html"
+  redirect_field_name = 'blog/post_detail.html'
+  form_class = PostForm
+  model = Post
 ```
 
 ## フォームの編集動作を作成
@@ -136,34 +127,28 @@ Editボタンを押した後のリンクを追加します。
 blog/urls.py
 ```python
 urlpatterns = [
-    path('', views.post_list, name='post_list'),
-    path('post/<int:pk>/', views.post_detail, name='post_detail'),
-    path('post/new/', views.post_new, name='post_new'),
-    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'), # 追加
+  ...
+  path('post/<int:pk>/edit/', views.PostUpdateView.as_view(), name='post_edit'),
 ]
 ```
 
 ### EditのViewを作成
 
-post_edit関数をviewに追加します。
+post_form関数をviewに追加します。
 
 post_newとの違いは、instance=postとしてインスタンスを渡しています。
 
 blog/views.py
 ```python
-def post_edit(request, pk):
-  post = get_object_or_404(Post, pk=pk)
-  if request.method == "POST":
-    form = PostForm(request.POST, instance=post)
-    if form.is_valid():
-      post = form.save(commit=False)
-      post.author = request.user
-      post.published_date = timezone.now()
-      post.save()
-      return redirect('post_detail', pk=post.pk)
-  else:
-    form = PostForm(instance=post)
-  return render(request, 'blog/post_edit.html', {'form': form})
+from django.views.generic import (ListView, DetailView, CreateView, UpdateView)
+
+
+class PostUpdateView(UpdateView):
+  template_name = "blog/post_form.html"
+  redirect_field_name = 'blog/post_detail.html'
+  form_class = PostForm
+  model = Post
+
 ```
 
 これで、ブログ投稿、編集ができるアプリケーションが完成しました。

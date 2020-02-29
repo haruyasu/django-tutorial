@@ -2,13 +2,6 @@
 
 今までは投稿するとすぐに公開されましたが、下書きに保存することができます。
 
-blog/views.pyのpost_new関数とpost_edit関数にあるpost.published_dateを削除します。
-
-blog/views.py
-```python
-post.published_date = timezone.now() # 削除
-```
-
 ## Draftボタンを作成
 
 ナビゲーションにDraftボタンを追加します。
@@ -26,7 +19,7 @@ urlはdrafts/にします。
 
 blog/urls.py
 ```python
-path('drafts/', views.post_draft_list, name='post_draft_list'),
+  path('drafts/', views.DraftListView.as_view(), name='post_draft_list'),
 ```
 
 ## 下書きのViewを作成
@@ -35,10 +28,13 @@ path('drafts/', views.post_draft_list, name='post_draft_list'),
 
 blog/views.py
 ```python
-def post_draft_list(request):
-  posts = Post.objects.filter(
-      published_date__isnull=True).order_by('created_date')
-  return render(request, 'blog/post_draft_list.html', {'posts': posts})
+class DraftListView(LoginRequiredMixin, ListView):
+  login_url = '/login/'
+  template_name = 'blog/post_draft_list.html'
+  model = Post
+
+  def get_queryset(self):
+    return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 ```
 
 ## 下書きのテンプレートを作成
@@ -56,7 +52,7 @@ blog/templates/blog/post_draft_list.html
 {% endblock %}
 
 {% block content %}
-  {% for post in posts %}
+  {% for post in post_list %}
   <div class="post-preview">
     <a href="{% url 'post_detail' pk=post.pk %}">
       <h2 class="post-title">

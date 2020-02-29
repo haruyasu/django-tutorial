@@ -17,13 +17,15 @@ blog/templates/blog/post_detail.html
 
 blog/urls.py
 ```python
-path('post/<pk>/publish/', views.post_publish, name='post_publish'),
+  path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
 ```
 
 ## 公開ボタンのViewを作成
 
 blog/views.py
 ```python
+from django.shortcuts import render, redirect, get_object_or_404
+
 def post_publish(request, pk):
   post = get_object_or_404(Post, pk=pk)
   post.publish()
