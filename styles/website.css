@@ -1,9 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP|Roboto+Mono|Roboto+Slab&display=swap&subset=japanese);
 
-.container {
-  max-width: 1200px;
-}
-
 .book.font-family-0 {
   font-family: "Noto Serif JP", "メイリオ", serif;
 }
