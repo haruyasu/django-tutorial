@@ -1,18 +1,6 @@
 # 新しいアプリケーションの作成
 
-## Djangoの仕組み
-
-DjangoはMTVモデルを採用しています。
-
-下記のイニシャルを取ったものです。
-
-* Model(データベースに格納されているデータ)
-* Template(テンプレートファイルによって定義されたそれぞれのページのデザイン)
-* View(どのページを表示させるかを決定する処理)
-
-![仕組み](../img/django.png)
-
-## アプリケーション作成
+アプリケーションを作成していきます。
 
 startappコマンドでアプリケーションを追加できます。
 
@@ -43,7 +31,11 @@ startappコマンドでアプリケーションを追加できます。
 └── requirements.txt
 ```
 
-### Djangoでアプリケーションを使えるように設定
+このようなディレクトリが自動的に生成されます。
+
+## Djangoでアプリケーションを使えるように設定
+
+アプリケーションを使えるようにするには、プロジェクトの設定にアプリケーションを追加する必要があります。
 
 INSTALLED_APPSに追加します。
 
@@ -58,8 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
+    'blog.apps.BlogConfig', # 追加
 ]
 ```
 
-最初にモデルを作成していきます。
+次は、モデルを作成していきます。

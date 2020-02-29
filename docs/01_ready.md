@@ -2,7 +2,11 @@
 
 ## GitHub
 
-好きな名前でGitHubのリポジトリを作成します。
+GitHubのアカウントを取得して下さい。
+
+https://github.com/
+
+「New repository」をクリックして、好きな名前でGitHubのリポジトリを作成します。
 
 ![GitHub](../img/github.png)
 
@@ -21,7 +25,7 @@ git push -u origin master
 
 この時点でREADME.mdだけコミットされていると思います。
 
-### ignoreファイルを追加
+### gitignoreファイルを追加
 
 ルートディレクトリに.gitignoreファイルを作成します。
 
@@ -40,15 +44,32 @@ __pycache__
 
 仮想環境を作成します。
 
+### 仮想環境とは
+
+開発を行うときは、用途に応じて専用の実行環境を作成し、切り替えて使用するのが一般的です。
+
+一時的に作成する実行環境を「仮想環境」と言います。
+
+### 仮想環境作成
+
+仮想環境はpythonに標準搭載されている仮想環境プログラムの「venv」を使用します。
+
 ```
 $ python3 -m venv myvenv
 ```
+
 ### 仮想環境実行
 
 sourceコマンドで仮想環境が実行できます。
 
+Linux、Mac
 ```
 $ source myvenv/bin/activate
+```
+
+Windows
+```
+$ .\myvenv\Scripts\activate
 ```
 
 ## パッケージをインストール
@@ -62,6 +83,8 @@ django-template
 └───requirements.txt
 ```
 
+requirements.txtに各パッケージを記載します。
+
 requirements.txt
 ```
 Django~=2.2
@@ -69,6 +92,8 @@ django-heroku==0.3.1
 gunicorn==19.9.0
 ```
 ※ django-herokuはHerokuにデプロイする時に必要なパッケージです。
+
+pip3 installコマンドでrequirements.txtに記載されたパッケージをインストールします。
 
 ```
 (myvenv) ~$ pip3 install -r requirements.txt

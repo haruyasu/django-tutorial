@@ -1,7 +1,14 @@
-
 # モデルの作成
 
-最初に投稿機能を追加しますので、Postモデルを追加します。
+Djangoではモデルをとおして、データベースを構築します。
+
+モデルを使用することで、SQLを意識することなくデータベースを操作することができます。
+
+モデルを定義するにはmodels.pyに追加します。
+
+まずは、投稿機能を作成していきます。
+
+Postモデルを追加します。
 
 クラスを追加し、各プロパティを定義していきます。
 
@@ -9,10 +16,67 @@ ForeignKey、CharField、TextField、DateTimeFieldなどのフィールド解説
 
 https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield
 
-* ForeignKey：多対1の関係で他のモデルへのリンク
-* CharField：文字列のフィールド
-* TextField：多量のテキストのフィールド
-* DateTimeField：日付と時刻のフィールド
+## フィールドクラス
+
+* ForeignKey
+  * 多対1の関係で他のモデルへのリンク
+* CharField
+  * 文字列のフィールド
+* TextField
+  * 多量のテキストのフィールド
+* DateTimeField
+  * 日付と時刻のフィールド
+* IntegerField
+  * 整数のフィールド
+* FloatField
+  * 小数のフィールド
+
+## フィールドオプション
+
+フィールドクラスで使えるオプションです。
+
+* null
+  * データベースのNULL可否を設定
+* blank
+  * フォームフィールドのブランク可否を設定
+* choices
+  * フォームの選択枠を設定
+* default
+  * デフォルト値を設定
+* unique
+  * ユニーク制約を設定
+* verbose_name
+  * フィールド名を設定
+* validators
+  * バリデーションの設定
+
+## リレーションフィールドクラス
+
+ForeignKeyを使用すると、モデルクラス間で関連付けをすることができます。
+
+* OneToOneField
+  * 1 対 1
+* ForeignKey
+  * 1 対 多
+* ManyToManyField
+  * 多 対 多
+
+## on_deleteオプション
+
+* models.CASCADE
+  * 一緒に削除される
+* models.PROTECT
+  * 削除できない
+* models.SET_NULL
+  * NULLがセットされる
+* models.SET_DEFAULT
+  * デフォルト値がセットされる
+* models.SET
+  * 任意の値がセットされる
+* DO_NOTHING
+  * 何もしない
+
+## モデルを作成
 
 blog/models.py
 ```python
