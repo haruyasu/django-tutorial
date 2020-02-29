@@ -494,16 +494,117 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4F5C;&#x6210;"><a name="&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4F5C;&#x6210;" class="plugin-anchor" href="#&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4F5C;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4F5C;&#x6210;</h1>
-<p>&#x6700;&#x521D;&#x306B;&#x6295;&#x7A3F;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;Post&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>Django&#x3067;&#x306F;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x3068;&#x304A;&#x3057;&#x3066;&#x3001;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x3092;&#x69CB;&#x7BC9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;SQL&#x3092;&#x610F;&#x8B58;&#x3059;&#x308B;&#x3053;&#x3068;&#x306A;&#x304F;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x3092;&#x64CD;&#x4F5C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x306B;&#x306F;models.py&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305A;&#x306F;&#x3001;&#x6295;&#x7A3F;&#x6A5F;&#x80FD;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>Post&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3001;&#x5404;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p>ForeignKey&#x3001;CharField&#x3001;TextField&#x3001;DateTimeField&#x306A;&#x3069;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x89E3;&#x8AAC;&#x306F;&#x516C;&#x5F0F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x53C2;&#x8003;&#x306B;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
 <p><a href="https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield" target="_blank">https://docs.djangoproject.com/ja/2.2/ref/models/fields/#charfield</a></p>
+<h2 id="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;"><a name="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;" class="plugin-anchor" href="#&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;</h2>
 <ul>
-<li>ForeignKey&#xFF1A;&#x591A;&#x5BFE;1&#x306E;&#x95A2;&#x4FC2;&#x3067;&#x4ED6;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;</li>
-<li>CharField&#xFF1A;&#x6587;&#x5B57;&#x5217;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
-<li>TextField&#xFF1A;&#x591A;&#x91CF;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
-<li>DateTimeField&#xFF1A;&#x65E5;&#x4ED8;&#x3068;&#x6642;&#x523B;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
+<li>ForeignKey<ul>
+<li>&#x591A;&#x5BFE;1&#x306E;&#x95A2;&#x4FC2;&#x3067;&#x4ED6;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;</li>
 </ul>
+</li>
+<li>CharField<ul>
+<li>&#x6587;&#x5B57;&#x5217;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
+</ul>
+</li>
+<li>TextField<ul>
+<li>&#x591A;&#x91CF;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
+</ul>
+</li>
+<li>DateTimeField<ul>
+<li>&#x65E5;&#x4ED8;&#x3068;&#x6642;&#x523B;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
+</ul>
+</li>
+<li>IntegerField<ul>
+<li>&#x6574;&#x6570;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
+</ul>
+</li>
+<li>FloatField<ul>
+<li>&#x5C0F;&#x6570;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;"><a name="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;" class="plugin-anchor" href="#&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;</h2>
+<p>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x4F7F;&#x3048;&#x308B;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</p>
+<ul>
+<li>null<ul>
+<li>&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306E;NULL&#x53EF;&#x5426;&#x3092;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li>blank<ul>
+<li>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x30D6;&#x30E9;&#x30F3;&#x30AF;&#x53EF;&#x5426;&#x3092;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li>choices<ul>
+<li>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x9078;&#x629E;&#x67A0;&#x3092;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li>default<ul>
+<li>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3092;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li>unique<ul>
+<li>&#x30E6;&#x30CB;&#x30FC;&#x30AF;&#x5236;&#x7D04;&#x3092;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li>verbose_name<ul>
+<li>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x540D;&#x3092;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li>validators<ul>
+<li>&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x30EA;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;"><a name="&#x30EA;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;" class="plugin-anchor" href="#&#x30EA;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30EA;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;</h2>
+<p>ForeignKey&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x3001;&#x30E2;&#x30C7;&#x30EB;&#x30AF;&#x30E9;&#x30B9;&#x9593;&#x3067;&#x95A2;&#x9023;&#x4ED8;&#x3051;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>OneToOneField<ul>
+<li>1 &#x5BFE; 1</li>
+</ul>
+</li>
+<li>ForeignKey<ul>
+<li>1 &#x5BFE; &#x591A;</li>
+</ul>
+</li>
+<li>ManyToManyField<ul>
+<li>&#x591A; &#x5BFE; &#x591A;</li>
+</ul>
+</li>
+</ul>
+<h2 id="ondelete&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;"><a name="ondelete&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;" class="plugin-anchor" href="#ondelete&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;"><i class="fa fa-link" aria-hidden="true"></i></a>on_delete&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;</h2>
+<ul>
+<li>models.CASCADE<ul>
+<li>&#x4E00;&#x7DD2;&#x306B;&#x524A;&#x9664;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+</li>
+<li>models.PROTECT<ul>
+<li>&#x524A;&#x9664;&#x3067;&#x304D;&#x306A;&#x3044;</li>
+</ul>
+</li>
+<li>models.SET_NULL<ul>
+<li>NULL&#x304C;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+</li>
+<li>models.SET_DEFAULT<ul>
+<li>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x304C;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+</li>
+<li>models.SET<ul>
+<li>&#x4EFB;&#x610F;&#x306E;&#x5024;&#x304C;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+</li>
+<li>DO_NOTHING<ul>
+<li>&#x4F55;&#x3082;&#x3057;&#x306A;&#x3044;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F5C;&#x6210;"><a name="&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F5C;&#x6210;" class="plugin-anchor" href="#&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F5C;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>blog/models.py</p>
 <pre class="language-"><code class="lang-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>conf <span class="token keyword">import</span> settings
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
@@ -575,7 +676,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.モデルの作成","level":"1.5","depth":1,"next":{"title":"6.管理画面の作成","level":"1.6","depth":1,"path":"docs/05_admin.md","ref":"docs/05_admin.md","articles":[]},"previous":{"title":"4.新しいアプリケーションの作成","level":"1.4","depth":1,"path":"docs/03_app.md","ref":"docs/03_app.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/04_models.md","mtime":"2020-02-28T23:07:14.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T07:32:38.038Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.モデルの作成","level":"1.5","depth":1,"next":{"title":"6.管理画面の作成","level":"1.6","depth":1,"path":"docs/05_admin.md","ref":"docs/05_admin.md","articles":[]},"previous":{"title":"4.新しいアプリケーションの作成","level":"1.4","depth":1,"path":"docs/03_app.md","ref":"docs/03_app.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/04_models.md","mtime":"2020-02-29T09:58:09.210Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T09:59:30.443Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
