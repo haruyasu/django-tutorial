@@ -548,11 +548,11 @@
                             
                             <div class="gb-markdown book-page-inner">
                                 <h1 id="javascript&#x3067;&#x52D5;&#x304D;&#x3092;&#x3064;&#x3051;&#x308B;">JavaScript&#x3067;&#x52D5;&#x304D;&#x3092;&#x3064;&#x3051;&#x308B;</h1>
-<p>&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3057;&#x305F;&#x6642;&#x306B;&#x30CA;&#x30D3;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306A;&#x3069;&#x52D5;&#x304D;&#x3092;&#x4ED8;&#x3051;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3057;&#x305F;&#x6642;&#x306B;&#x30CA;&#x30D3;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x52D5;&#x304D;&#x3092;&#x4ED8;&#x3051;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="../img/nav.png" alt="Navigation"></p>
 <p>base.html&#x306B;JavaScript&#x3092;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/templates/blog/base.html</p>
 <pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://code.jquery.com/jquery-3.4.1.slim.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{% static &apos;js/blog.js&apos; %}&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
@@ -567,45 +567,40 @@
             &#x2514;&#x2500;&#x2500; blog.js
 </code></pre><p>blog.js&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>JavaScript:blog/static/js/blog.js</p>
-<pre><code class="lang-JavaScript:blog/static/js/blog.js">(function ($) {
-  &quot;use strict&quot;;
+<pre><code class="lang-JavaScript"><span class="hljs-meta">&quot;use strict&quot;</span>;
 
-  $(&quot;body&quot;).on(&quot;input propertychange&quot;, &quot;.floating-label-form-group&quot;, function (e) {
-    $(this).toggleClass(&quot;floating-label-form-group-with-value&quot;, !!$(e.target).val());
-  }).on(&quot;focus&quot;, &quot;.floating-label-form-group&quot;, function () {
-    $(this).addClass(&quot;floating-label-form-group-with-focus&quot;);
-  }).on(&quot;blur&quot;, &quot;.floating-label-form-group&quot;, function () {
-    $(this).removeClass(&quot;floating-label-form-group-with-focus&quot;);
+<span class="hljs-keyword">const</span> mainNav = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;#mainNav&quot;</span>)
+
+<span class="hljs-comment">// window&#x306E;&#x5E45;&#x304C;992px&#x4EE5;&#x4E0A;&#x306E;&#x5834;&#x5408;</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &gt; <span class="hljs-number">992</span>) {
+  <span class="hljs-keyword">let</span> previousTop = <span class="hljs-number">0</span>;
+
+  <span class="hljs-comment">// &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x30A4;&#x30D9;&#x30F3;&#x30C8;</span>
+  <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;scroll&apos;</span>, (e) =&gt; {
+    <span class="hljs-comment">// &#x30C8;&#x30C3;&#x30D7;&#x3092;&#x53D6;&#x5F97;</span>
+    <span class="hljs-keyword">let</span> currentTop = <span class="hljs-built_in">document</span>.documentElement.scrollTop || <span class="hljs-built_in">document</span>.body.scrollTop;
+
+    <span class="hljs-keyword">if</span> (currentTop &lt; previousTop) {
+      <span class="hljs-comment">// &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;UP</span>
+      <span class="hljs-keyword">if</span> (currentTop &gt; <span class="hljs-number">0</span> &amp;&amp; mainNav.classList.contains(<span class="hljs-string">&apos;is-fixed&apos;</span>)) {
+        mainNav.classList.add(<span class="hljs-string">&quot;is-visible&quot;</span>);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;TOP</span>
+        mainNav.classList.remove(<span class="hljs-string">&quot;is-visible&quot;</span>, <span class="hljs-string">&quot;is-fixed&quot;</span>);
+      }
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (currentTop &gt; previousTop) {
+      <span class="hljs-comment">// &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;DOWN</span>
+      mainNav.classList.remove(<span class="hljs-string">&quot;is-visible&quot;</span>);
+
+      <span class="hljs-keyword">if</span> (currentTop &gt; mainNav.clientHeight &amp;&amp; !mainNav.classList.contains(<span class="hljs-string">&apos;is-fixed&apos;</span>)) {
+        mainNav.classList.add(<span class="hljs-string">&quot;is-fixed&quot;</span>);
+      }
+    }
+    previousTop = currentTop;
   });
-
-  var MQL = 992;
-
-  if ($(window).width() &gt; MQL) {
-    var headerHeight = $(&apos;#mainNav&apos;).height();
-    $(window).on(&apos;scroll&apos;, {
-      previousTop: 0
-    },
-      function () {
-        var currentTop = $(window).scrollTop();
-        if (currentTop &lt; this.previousTop) {
-          if (currentTop &gt; 0 &amp;&amp; $(&apos;#mainNav&apos;).hasClass(&apos;is-fixed&apos;)) {
-            $(&apos;#mainNav&apos;).addClass(&apos;is-visible&apos;);
-          } else {
-            $(&apos;#mainNav&apos;).removeClass(&apos;is-visible is-fixed&apos;);
-          }
-        } else if (currentTop &gt; this.previousTop) {
-          $(&apos;#mainNav&apos;).removeClass(&apos;is-visible&apos;);
-          if (currentTop &gt; headerHeight &amp;&amp; !$(&apos;#mainNav&apos;).hasClass(&apos;is-fixed&apos;)) {
-            $(&apos;#mainNav&apos;).addClass(&apos;is-fixed&apos;);
-          }
-        }
-        this.previousTop = currentTop;
-      });
-  }
-
-})(jQuery);
+}
 </code></pre>
-<p>&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3068;&#x3001;&#x30CA;&#x30D3;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x52D5;&#x304D;&#x304C;&#x3064;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>&#x4E0B;&#x306B;&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3001;&#x4E0A;&#x306B;&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3068;&#x30CA;&#x30D3;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8868;&#x793A;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 
                             </div>
                             
@@ -642,7 +637,7 @@
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 24th 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -681,7 +676,7 @@
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"next":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"path":"docs/23_header_image.md","ref":"docs/23_header_image.md","articles":[]},"previous":{"title":"22.コメント機能の追加","level":"1.22","depth":1,"path":"docs/21_comments.md","ref":"docs/21_comments.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/22_javascript.md","mtime":"2020-02-24T02:20:16.009Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:56:26.584Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"next":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"path":"docs/23_header_image.md","ref":"docs/23_header_image.md","articles":[]},"previous":{"title":"22.コメント機能の追加","level":"1.22","depth":1,"path":"docs/21_comments.md","ref":"docs/21_comments.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/22_javascript.md","mtime":"2020-02-29T04:14:56.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T04:16:27.060Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 
