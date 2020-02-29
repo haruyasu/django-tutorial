@@ -3,8 +3,6 @@
   "description": "Django Tutorial",
   "language": "ja",
   "plugins": [
-    "custom-favicon",
-    "insert-logo",
     "-sharing",
     "prism",
     "-highlight",
@@ -16,11 +14,6 @@
     "collapsible-chapters"
   ],
   "pluginsConfig": {
-    "favicon": "/img/favicon.ico",
-    "insert-logo": {
-      "url": "/img/logo.png",
-      "style": "background: none;"
-    },
     "prism": {
       "css": [
         "prismjs/themes/prism-tomorrow.css"
