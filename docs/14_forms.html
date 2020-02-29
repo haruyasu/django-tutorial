@@ -494,7 +494,56 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x4F5C;&#x6210;"><a name="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x4F5C;&#x6210;" class="plugin-anchor" href="#&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x4F5C;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x4F5C;&#x6210;</h1>
-<p>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3001;Web&#x4E0A;&#x3067;&#x8A18;&#x4E8B;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x308A;&#x3001;&#x7DE8;&#x96C6;&#x3057;&#x305F;&#x308A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306F;&#x3001;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x753B;&#x9762;&#x3067;&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;&#x5024;&#x3092;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x5909;&#x63DB;&#x3001;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x5165;&#x529B;&#x5024;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3082;&#x304A;&#x3053;&#x306A;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><a href="https://docs.djangoproject.com/ja/2.2/ref/forms/fields/" target="_blank">https://docs.djangoproject.com/ja/2.2/ref/forms/fields/</a></p>
+<h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x5B9A;&#x7FA9;"><a name="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x5B9A;&#x7FA9;" class="plugin-anchor" href="#&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x5B9A;&#x7FA9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x5B9A;&#x7FA9;</h2>
+<p>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306F;django.forms.ModelForm&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x7D99;&#x627F;&#x3057;&#x3066;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>django.forms.Form&#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;&#x5834;&#x5408;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;"><a name="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;" class="plugin-anchor" href="#&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;</h2>
+<p>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x306F;&#x30A6;&#x30A3;&#x30B8;&#x30A7;&#x30C3;&#x30C8;&#x304C;&#x8A2D;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30A6;&#x30A3;&#x30B8;&#x30A7;&#x30C3;&#x30C8;&#x306F;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x30BF;&#x30A4;&#x30D7;&#x3084;&#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<ul>
+<li>CharField<ul>
+<li>TextInput</li>
+</ul>
+</li>
+<li>IntegerField<ul>
+<li>NumberInput</li>
+</ul>
+</li>
+<li>ChoiceField<ul>
+<li>Select</li>
+</ul>
+</li>
+<li>DataField<ul>
+<li>DataInput</li>
+</ul>
+</li>
+<li>DataTimeField<ul>
+<li>DataTimeInput</li>
+</ul>
+</li>
+<li>EmailField<ul>
+<li>EmailInput</li>
+</ul>
+</li>
+<li>FileField<ul>
+<li>ClearableFileInput</li>
+</ul>
+</li>
+<li>ImageField<ul>
+<li>ClearableFileInput</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x8FFD;&#x52A0;"><a name="&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x8FFD;&#x52A0;" class="plugin-anchor" href="#&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x8FFD;&#x52A0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x8FFD;&#x52A0;</h2>
+<ul>
+<li>validators&#x3092;&#x4F7F;&#x7528;</li>
+<li>clean_&lt;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x540D;&gt;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x7528;</li>
+<li>clean&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x7528;</li>
+</ul>
+<h2 id="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x4F5C;&#x6210;"><a name="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x4F5C;&#x6210;" class="plugin-anchor" href="#&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x4F5C;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x4F5C;&#x6210;</h2>
 <p>forms.py&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre class="language-"><code>blog
    &#x2514;&#x2500;&#x2500; forms.py
@@ -643,7 +692,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.フォームの作成","level":"1.15","depth":1,"next":{"title":"16.セキュリティ対策","level":"1.16","depth":1,"path":"docs/15_security.md","ref":"docs/15_security.md","articles":[]},"previous":{"title":"14.アプリケーションの拡張","level":"1.14","depth":1,"path":"docs/13_application_extending.md","ref":"docs/13_application_extending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/14_forms.md","mtime":"2020-02-29T01:50:30.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T09:59:30.443Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.フォームの作成","level":"1.15","depth":1,"next":{"title":"16.セキュリティ対策","level":"1.16","depth":1,"path":"docs/15_security.md","ref":"docs/15_security.md","articles":[]},"previous":{"title":"14.アプリケーションの拡張","level":"1.14","depth":1,"path":"docs/13_application_extending.md","ref":"docs/13_application_extending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/14_forms.md","mtime":"2020-02-29T12:44:26.018Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T12:47:28.971Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
