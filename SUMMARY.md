@@ -25,4 +25,5 @@
 * [23.JavaScriptの追加](docs/22_javascript.md)
 * [24.ヘッダー画像の追加](docs/23_header_image.md)
 * [25.固定ページの追加](docs/24_about.md)
-* [26.Herokuデプロイ](docs/25_deploy.md)
+* [26.ページネーション機能の追加](docs/25_pagenation.md)
+* [27.Herokuデプロイ](docs/26_deploy.md)
