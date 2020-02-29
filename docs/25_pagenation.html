@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.前準備 · Django Tutorial</title>
+        <title>26.ページネーション機能の追加 · Django Tutorial</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,10 @@
 
 
     
-    <link rel="next" href="02_project.html" />
+    <link rel="next" href="26_deploy.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="24_about.html" />
     
 
     </head>
@@ -86,12 +86,12 @@
 
             
                 
-                <a href="02_project.html" class="btn btn-link pull-right hidden-xs">
+                <a href="26_deploy.html" class="btn btn-link pull-right hidden-xs">
                     <i class="octicon octicon-chevron-right"></i>
                 </a>
                 
                 
-                <a href="../" class="btn btn-link pull-right hidden-xs">
+                <a href="24_about.html" class="btn btn-link pull-right hidden-xs">
                     <i class="octicon octicon-chevron-left"></i>
                 </a>
                 
@@ -133,7 +133,7 @@
         
     
         
-        <a href="01_ready.html" class="list-group-item active">
+        <a href="01_ready.html" class="list-group-item ">
         
 
             
@@ -517,7 +517,7 @@
         
     
         
-        <a href="25_pagenation.html" class="list-group-item ">
+        <a href="25_pagenation.html" class="list-group-item active">
         
 
             
@@ -563,53 +563,54 @@
     
                             
                             <div class="gb-markdown book-page-inner">
-                                <h1 id="&#x6E96;&#x5099;">&#x6E96;&#x5099;</h1>
-<h2 id="github">GitHub</h2>
-<p>&#x597D;&#x304D;&#x306A;&#x540D;&#x524D;&#x3067;GitHub&#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p><img src="../img/github.png" alt="GitHub"></p>
-<p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306B;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x540D;&#x3068;&#x540C;&#x3058;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x3068;GitHub&#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x3092;&#x9023;&#x643A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>echo &quot;# django-blog&quot; &gt;&gt; README.md
-git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin https://github.com/haruyasu/django-blog.git
-git push -u origin master
-</code></pre><p>&#x203B;&#x4F5C;&#x6210;&#x3057;&#x305F;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x540D;&#x306B;&#x5909;&#x66F4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x6642;&#x70B9;&#x3067;README.md&#x3060;&#x3051;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="ignore&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;">ignore&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8FFD;&#x52A0;</h3>
-<p>&#x30EB;&#x30FC;&#x30C8;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;.gitignore&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x8A18;&#x8FF0;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x3001;git&#x7BA1;&#x7406;&#x4E0B;&#x304B;&#x3089;&#x9664;&#x5916;&#x3055;&#x308C;&#x3066;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>.gitignore</p>
-<pre><code>myvenv
-db.sqlite3
-.vscode
-__pycache__
-*.pyc
-</code></pre><h2 id="&#x4EEE;&#x60F3;&#x74B0;&#x5883;">&#x4EEE;&#x60F3;&#x74B0;&#x5883;</h2>
-<p>&#x4EEE;&#x60F3;&#x74B0;&#x5883;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>$ python3 -m venv myvenv
-</code></pre><h3 id="&#x4EEE;&#x60F3;&#x74B0;&#x5883;&#x5B9F;&#x884C;">&#x4EEE;&#x60F3;&#x74B0;&#x5883;&#x5B9F;&#x884C;</h3>
-<p>source&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x4EEE;&#x60F3;&#x74B0;&#x5883;&#x304C;&#x5B9F;&#x884C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>$ source myvenv/bin/activate
-</code></pre><h2 id="&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h2>
-<p>requirements.txt&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;&#x958B;&#x767A;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>django-template
-&#x251C;&#x2500;&#x2500; myvenv
-&#x2502;   &#x2514;&#x2500;&#x2500; ...
-&#x2514;&#x2500;&#x2500;&#x2500;requirements.txt
-</code></pre><p>requirements.txt</p>
-<pre><code>Django~=2.2
-django-heroku==0.3.1
-gunicorn==19.9.0
-</code></pre><p>&#x203B; django-heroku&#x306F;Heroku&#x306B;&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#x3059;&#x308B;&#x6642;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3067;&#x3059;&#x3002;</p>
-<pre><code>(myvenv) ~$ pip3 install -r requirements.txt
-</code></pre><p>django-heroku&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3068;&#x3001;&#x4ED6;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3082;&#x8907;&#x6570;&#x540C;&#x6642;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
-<p>psycopg2&#x304C;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x3082;&#x3057;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;python3-dev&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>psycopg2&#x4EE5;&#x5916;&#x306E;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x5185;&#x5BB9;&#x3092;&#x691C;&#x7D22;&#x3059;&#x308B;&#x3068;&#x89E3;&#x6C7A;&#x65B9;&#x6CD5;&#x304C;&#x898B;&#x3064;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>Linux(Ubuntu)&#x306E;&#x5834;&#x5408;</p>
-<pre><code>sudo apt-get install python3-dev
-</code></pre><p>&#x203B; &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;OS&#x306B;&#x3088;&#x3063;&#x3066;&#x5909;&#x66F4;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+                                <h1 id="&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x6A5F;&#x80FD;&#x306E;&#x8FFD;&#x52A0;">&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x6A5F;&#x80FD;&#x306E;&#x8FFD;&#x52A0;</h1>
+<p>&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3068;&#x306F;">&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3068;&#x306F;</h2>
+<p>&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3068;&#x306F;&#x3001;&#x5185;&#x5BB9;&#x306E;&#x591A;&#x3044;&#x30DA;&#x30FC;&#x30B8;&#x3092;&#x8907;&#x6570;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x5206;&#x5272;&#x3057;&#x3001;&#x5404;&#x30DA;&#x30FC;&#x30B8;&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x4E26;&#x3079;&#x3066;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x3084;&#x3059;&#x304F;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<p><img src="../img/pagenation.png" alt="Pagenation"></p>
+<p>Django&#x3067;&#x306F;&#x7C21;&#x5358;&#x306B;&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x6A5F;&#x80FD;&#x304C;&#x5B9F;&#x88C5;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;view&#x306B;&#x8FFD;&#x52A0;">&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;View&#x306B;&#x8FFD;&#x52A0;</h2>
+<p>paginate_by&#x5909;&#x6570;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3059;&#x308B;&#x3060;&#x3051;&#x3067;&#x3001;&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x5B9F;&#x88C5;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x597D;&#x304D;&#x306A;&#x6570;&#x5B57;&#x3092;&#x4EE3;&#x5165;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x4ECA;&#x56DE;&#x306F;&#x3001;3&#x6295;&#x7A3F;&#x305A;&#x3064;&#x8868;&#x793A;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/views.py</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostListView</span><span class="hljs-params">(ListView)</span>:</span>
+  model = Post
+  template_name = <span class="hljs-string">&quot;blog/post_list.html&quot;</span>
+  paginate_by = <span class="hljs-number">3</span> <span class="hljs-comment"># &#x8FFD;&#x52A0;</span>
+</code></pre>
+<h2 id="&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x306B;&#x8FFD;&#x52A0;">&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x306B;&#x8FFD;&#x52A0;</h2>
+<p>&#x4E00;&#x756A;&#x4E0B;&#x306E;endblock&#x306E;&#x4E0A;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>blog/templates/blog/post_list.html</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pagination pagination-sm justify-content-center&quot;</span>&gt;</span>
+    {% if page_obj.has_previous %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;?page={{ page_obj.previous_page_number }}&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>Prev<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#!&quot;</span>&gt;</span>{{ num }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      {% else %}
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;?page={{ num }}&quot;</span>&gt;</span>{{ num }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;?page={{ page_obj.next_page_number }}&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>Next<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    {% endif %}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+{% endblock %}
+</code></pre>
+<p>&#x3053;&#x308C;&#x3060;&#x3051;&#x3067;&#x3001;&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x5B9F;&#x88C5;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>&#x30DA;&#x30FC;&#x30B8;&#x30CD;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;&#x30DA;&#x30FC;&#x30B8;&#x304C;&#x5206;&#x5272;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
 
                             </div>
                             
@@ -646,7 +647,7 @@ gunicorn==19.9.0
                     <a href="#">Return to the top</a>
                 </li>
                 <li>
-                    <a href="#">Updated Feb 21st 20</a>
+                    <a href="#">Updated Feb 29th 20</a>
                 </li>
             </ul>
         </div>
@@ -685,7 +686,7 @@ gunicorn==19.9.0
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"2.前準備","level":"1.2","depth":1,"next":{"title":"3.プロジェクトの作成","level":"1.3","depth":1,"path":"docs/02_project.md","ref":"docs/02_project.md","articles":[]},"previous":{"title":"1.ブログ構築","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/01_ready.md","mtime":"2020-02-21T12:30:23.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T04:48:05.626Z"},"basePath":"..","book":{"language":""}});
+    gitbook.page.hasChanged({"page":{"title":"26.ページネーション機能の追加","level":"1.26","depth":1,"next":{"title":"27.Herokuデプロイ","level":"1.27","depth":1,"path":"docs/26_deploy.md","ref":"docs/26_deploy.md","articles":[]},"previous":{"title":"25.固定ページの追加","level":"1.25","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","theme-official"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-official":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/25_pagenation.md","mtime":"2020-02-29T04:47:26.615Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T04:48:05.626Z"},"basePath":"..","book":{"language":""}});
 })();
 </script>
 
