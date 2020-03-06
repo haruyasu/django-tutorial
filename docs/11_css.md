@@ -20,7 +20,7 @@ CSSの内容は、githubの内容をコピーして貼り付けておいて下�
 
 blog/static/css/blog.css
 
-https://github.com/haruyasu/django-template-upgrade/blob/master/blog/static/css/blog.css
+https://github.com/haruyasu/django-template-upgrade2/blob/master/blog/static/css/blog.css
 
 ## トップページを変更
 

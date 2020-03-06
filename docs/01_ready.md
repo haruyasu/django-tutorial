@@ -29,6 +29,12 @@ git push -u origin master
 
 ルートディレクトリに.gitignoreファイルを作成します。
 
+```
+django-blog
+├── README.md
+└───.gitignore
+```
+
 記述されたファイルは、git管理下から除外されてコミットされなくなります。
 
 .gitignore
@@ -54,13 +60,28 @@ __pycache__
 
 仮想環境はpythonに標準搭載されている仮想環境プログラムの「venv」を使用します。
 
+ルートディレクトリで下記コマンドを入力します。(django-blogフォルダの中)
+
 ```
 $ python3 -m venv myvenv
+```
+
+コマンドを実行すると、myvenvフォルダが作成されます。
+
+VS Codeを使用している方は、エクスプローラーをリフレッシュすると、フォルダが表示されます。
+
+```
+django-blog
+├── README.md
+├── .gitignore
+└───myvenv
 ```
 
 ### 仮想環境実行
 
 sourceコマンドで仮想環境が実行できます。
+
+ルートディレクトリで下記コマンドを入力します。
 
 Linux、Mac
 ```
@@ -77,7 +98,9 @@ $ .\myvenv\Scripts\activate
 requirements.txtを作成し、開発に必要なパッケージをインストールします。
 
 ```
-django-template
+django-blog
+├── README.md
+├── .gitignore
 ├── myvenv
 │   └── ...
 └───requirements.txt

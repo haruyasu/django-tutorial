@@ -38,7 +38,7 @@ Procfileは、アプリのプロセスタイプやエントリーポイントを
 Procfileを作成します。
 
 ```
-django-template
+django-blog
 └── Procfile
 ```
 
@@ -60,7 +60,7 @@ runtime.txtにはプログラム実行時に必要なものを定義します。
 runtime.txtを作成します。
 
 ```
-django-template
+django-blog
 └── runtime.txt
 ```
 
@@ -108,13 +108,13 @@ Herokuにプロジェクトを作成します。
 このプロジェクト名がURLになりますので、既に他の人に使われているプロジェクト名は指定できません。
 
 ```
-$ heroku create django-template-blog
+$ heroku create django-blog
 ```
 
 このように表示されたら成功です。
 ```
-Creating ⬢ django-template-blog... done
-https://django-template-blog.herokuapp.com/ | https://git.heroku.com/django-template-blog.git
+Creating ⬢ django-blog... done
+https://django-blog.herokuapp.com/ | https://git.heroku.com/django-blog.git
 ```
 
 ### Herokuにpush
@@ -127,10 +127,10 @@ $ git push heroku master
 
 デプロイ完了とメッセージが表示されます。
 ```
-remote:        https://django-template-blog.herokuapp.com/ deployed to Heroku
+remote:        https://django-blog.herokuapp.com/ deployed to Heroku
 remote: 
 remote: Verifying deploy... done.
-To https://git.heroku.com/django-template-blog.git
+To https://git.heroku.com/django-blog.git
  * [new branch]      master -> master
 ```
 
@@ -159,7 +159,7 @@ $ heroku run python manage.py migrate
 
 このように表示されたら成功です。
 ```
-Running python manage.py migrate on ⬢ django-template-blog... up, run.5146 (Free)
+Running python manage.py migrate on ⬢ django-blog... up, run.5146 (Free)
 Operations to perform:
   Apply all migrations: admin, auth, blog, contenttypes, sessions
 Running migrations:
@@ -195,7 +195,7 @@ $ heroku run python manage.py createsuperuser
 ユーザー名、メールアドレス、パスワードを入力します。
 パスワードの入力は表示されませんので、間違えずに入力して下さい。
 ```
-Running python manage.py createsuperuser on ⬢ django-template-blog... up, run.6023 (Free)
+Running python manage.py createsuperuser on ⬢ django-blog... up, run.6023 (Free)
 ユーザー名:
 メールアドレス:
 Password: 
@@ -206,8 +206,6 @@ Superuser created successfully.
 これで無事デプロイ完了です。
 
 デプロイしたURLにアクセスしてみましょう。
-
-https://django-template-blog.herokuapp.com/
 
 ローカルと同じ画面が表示されているはずです。
 
@@ -227,6 +225,7 @@ https://django-template-blog.herokuapp.com/
 
 .gitignore
 ```
+...
 local_settings.py
 ```
 
