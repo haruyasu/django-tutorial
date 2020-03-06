@@ -513,7 +513,7 @@ whitenoise==5.0.1
 </code></pre><h3 id="procfile&#x4F5C;&#x6210;"><a name="procfile&#x4F5C;&#x6210;" class="plugin-anchor" href="#procfile&#x4F5C;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>Procfile&#x4F5C;&#x6210;</h3>
 <p>Procfile&#x306F;&#x3001;&#x30A2;&#x30D7;&#x30EA;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x30BF;&#x30A4;&#x30D7;&#x3084;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x3059;&#x3002;</p>
 <p>Procfile&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre class="language-"><code>django-template
+<pre class="language-"><code>django-blog
 &#x2514;&#x2500;&#x2500; Procfile
 </code></pre><p>Procfile</p>
 <pre class="language-"><code>web: gunicorn mysite.wsgi
@@ -523,7 +523,7 @@ whitenoise==5.0.1
 <p>runtime.txt&#x306B;&#x306F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x5B9F;&#x884C;&#x6642;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3082;&#x306E;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x3053;&#x3067;&#x306F;Python&#x304C;&#x5FC5;&#x8981;&#x306A;&#x306E;&#x3067;Python&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>runtime.txt&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre class="language-"><code>django-template
+<pre class="language-"><code>django-blog
 &#x2514;&#x2500;&#x2500; runtime.txt
 </code></pre><p>runtime.txt</p>
 <pre class="language-"><code>python-3.6.9
@@ -545,18 +545,18 @@ whitenoise==5.0.1
 <p>Heroku&#x306B;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x597D;&#x304D;&#x306A;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x540D;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x540D;&#x304C;URL&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x65E2;&#x306B;&#x4ED6;&#x306E;&#x4EBA;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x540D;&#x306F;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre class="language-"><code>$ heroku create django-template-blog
+<pre class="language-"><code>$ heroku create django-blog
 </code></pre><p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x3089;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
-<pre class="language-"><code>Creating &#x2B22; django-template-blog... done
-https://django-template-blog.herokuapp.com/ | https://git.heroku.com/django-template-blog.git
+<pre class="language-"><code>Creating &#x2B22; django-blog... done
+https://django-blog.herokuapp.com/ | https://git.heroku.com/django-blog.git
 </code></pre><h3 id="heroku&#x306B;push"><a name="heroku&#x306B;push" class="plugin-anchor" href="#heroku&#x306B;push"><i class="fa fa-link" aria-hidden="true"></i></a>Heroku&#x306B;push</h3>
 <p>Heroku&#x306B;push&#x3059;&#x308B;&#x524D;&#x306B;&#x3001;GitHub&#x306B;&#x3059;&#x3079;&#x3066;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x3057;&#x3066;&#x304A;&#x3044;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
 <pre class="language-"><code>$ git push heroku master
 </code></pre><p>&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#x5B8C;&#x4E86;&#x3068;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
-<pre class="language-"><code>remote:        https://django-template-blog.herokuapp.com/ deployed to Heroku
+<pre class="language-"><code>remote:        https://django-blog.herokuapp.com/ deployed to Heroku
 remote: 
 remote: Verifying deploy... done.
-To https://git.heroku.com/django-template-blog.git
+To https://git.heroku.com/django-blog.git
  * [new branch]      master -&gt; master
 </code></pre><h3 id="&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;&#x8D77;&#x52D5;"><a name="&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;&#x8D77;&#x52D5;" class="plugin-anchor" href="#&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;&#x8D77;&#x52D5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;&#x8D77;&#x52D5;</h3>
 <p>&#x3053;&#x306E;&#x307E;&#x307E;&#x3060;&#x3068;gunicorn&#x306E;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x304C;&#x8D77;&#x52D5;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x305B;&#x3093;&#x3002;</p>
@@ -568,7 +568,7 @@ To https://git.heroku.com/django-template-blog.git
 <p>migrate&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x3057;&#x3066;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x3092;&#x69CB;&#x7BC9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre class="language-"><code>$ heroku run python manage.py migrate
 </code></pre><p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x3089;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
-<pre class="language-"><code>Running python manage.py migrate on &#x2B22; django-template-blog... up, run.5146 (Free)
+<pre class="language-"><code>Running python manage.py migrate on &#x2B22; django-blog... up, run.5146 (Free)
 Operations to perform:
   Apply all migrations: admin, auth, blog, contenttypes, sessions
 Running migrations:
@@ -596,7 +596,7 @@ Running migrations:
 <pre class="language-"><code>$ heroku run python manage.py createsuperuser
 </code></pre><p>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#x3001;&#x30E1;&#x30FC;&#x30EB;&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x3001;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;
 &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x306E;&#x5165;&#x529B;&#x306F;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093;&#x306E;&#x3067;&#x3001;&#x9593;&#x9055;&#x3048;&#x305A;&#x306B;&#x5165;&#x529B;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
-<pre class="language-"><code>Running python manage.py createsuperuser on &#x2B22; django-template-blog... up, run.6023 (Free)
+<pre class="language-"><code>Running python manage.py createsuperuser on &#x2B22; django-blog... up, run.6023 (Free)
 &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;:
 &#x30E1;&#x30FC;&#x30EB;&#x30A2;&#x30C9;&#x30EC;&#x30B9;:
 Password: 
@@ -604,7 +604,6 @@ Password (again):
 Superuser created successfully.
 </code></pre><p>&#x3053;&#x308C;&#x3067;&#x7121;&#x4E8B;&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#x5B8C;&#x4E86;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#x3057;&#x305F;URL&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p><a href="https://django-template-blog.herokuapp.com/" target="_blank">https://django-template-blog.herokuapp.com/</a></p>
 <p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x3068;&#x540C;&#x3058;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x6700;&#x521D;&#x306F;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x306A;&#x3044;&#x521D;&#x671F;&#x72B6;&#x614B;&#x306A;&#x306E;&#x3067;&#x3001;&#x30D6;&#x30ED;&#x30B0;&#x3092;&#x6295;&#x7A3F;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <h2 id="&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x3092;&#x9AD8;&#x3081;&#x308B;"><a name="&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x3092;&#x9AD8;&#x3081;&#x308B;" class="plugin-anchor" href="#&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x3092;&#x9AD8;&#x3081;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x3092;&#x9AD8;&#x3081;&#x308B;</h2>
@@ -614,7 +613,8 @@ Superuser created successfully.
 <p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x3067;&#x306F;&#x3044;&#x3044;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x672C;&#x756A;&#x74B0;&#x5883;&#x3067;&#x8A73;&#x7D30;&#x306A;&#x60C5;&#x5831;&#x306F;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x304F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>.gitignore&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x3001;local_settings.py&#x3092;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>.gitignore</p>
-<pre class="language-"><code>local_settings.py
+<pre class="language-"><code>...
+local_settings.py
 </code></pre><p>local_settings.py&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306E;&#x307F;DEBUG&#x6A5F;&#x80FD;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>mysite/local_settings.py</p>
@@ -720,7 +720,7 @@ SECRET_KEY <span class="token operator">=</span> <span class="token string">&apo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"27.Herokuデプロイ","level":"1.27","depth":1,"previous":{"title":"26.ページネーション機能の追加","level":"1.26","depth":1,"path":"docs/25_pagenation.md","ref":"docs/25_pagenation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/26_deploy.md","mtime":"2020-02-29T04:37:44.407Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T23:47:52.961Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"27.Herokuデプロイ","level":"1.27","depth":1,"previous":{"title":"26.ページネーション機能の追加","level":"1.26","depth":1,"path":"docs/25_pagenation.md","ref":"docs/25_pagenation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters","livereload"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/26_deploy.md","mtime":"2020-03-06T12:02:47.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T11:49:26.860Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -747,6 +747,10 @@ SECRET_KEY <span class="token operator">=</span> <span class="token string">&apo
     
         
         <script src="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
