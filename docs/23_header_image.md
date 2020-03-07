@@ -192,11 +192,9 @@ API Secret:	xxx
 
 ### cloudinaryをインストール
 
-pipを最新バージョンにしてから、cloudinaryをインストールします。
+cloudinaryをインストールします。
 
 ```
-pip3 install --upgrade pip
-pip3 install --upgrade setuptools
 pip3 install install django-cloudinary-storage
 ```
 

@@ -93,7 +93,36 @@ Windows
 $ .\myvenv\Scripts\activate
 ```
 
-## パッケージをインストール
+## 最新pipコマンド
+
+pipコマンドをアップデートしておきましょう。
+
+現在、古いコマンドがインストールされています。
+
+```
+(myvenv) ~$ pip3 install --upgrade pip
+(myvenv) ~$ pip3 install --upgrade setuptools
+```
+
+## 環境準備
+
+環境を準備するのに下記のコマンドを入力してください。
+
+Macの場合
+```
+(myvenv) ~$ brew install postgresql
+```
+
+もしbrewコマンドが認識されない場合は、brewをインストールしてください。
+
+https://brew.sh/index_ja
+
+Linuxの場合
+```
+sudo apt-get install python3-dev
+```
+
+## Djangoパッケージをインストール
 
 requirements.txtを作成し、開発に必要なパッケージをインストールします。
 
@@ -123,13 +152,3 @@ pip3 installコマンドでrequirements.txtに記載されたパッケージを�
 ```
 
 django-herokuをインストールすると、他のパッケージも複数同時にインストールされます。
-
-psycopg2が自動的にインストールされますが、もしエラーが発生した場合は、python3-devをインストールします。
-
-psycopg2以外のエラーが発生した場合は、エラー内容を検索すると解決方法が見つかると思います。
-
-Linux(Ubuntu)の場合
-```
-sudo apt-get install python3-dev
-```
-※ コマンドはOSによって変更して下さい。
