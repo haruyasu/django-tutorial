@@ -28,7 +28,7 @@ blog/urls.py
 
 blog/views.py
 ```python
-class DraftListView(LoginRequiredMixin, ListView):
+class DraftListView(ListView):
   login_url = '/login/'
   template_name = 'blog/post_draft_list.html'
   model = Post
