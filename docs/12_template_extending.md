@@ -54,9 +54,11 @@ blog/templates/blog/base.html
 
 ## post_list.html
 
-post_list.htmlには内容が変わる部分だけを記載します。
+post_list.htmlの中身をすべて削除し、下記内容に書き換えます。
 
-今回はheaderとcontentの内容がページによって変わります。
+動的に変わる部分だけをpost_list.htmlに記載します。
+
+今回はblock headerとblock contentの内容が投稿内容によって変わります。
 
 先頭にはextends 'blog/base.html'を追記し、テンプレートを拡張することを指定します。
 
@@ -65,22 +67,20 @@ blog/templates/blog/post_list.html
 {% extends 'blog/base.html' %}
 
 {% block header %}
-<div class="site-heading">
-  <h1>Django Startup</h1>
-  <span class="subheading">This is your first step!</span>
-</div>
+	<div class="site-heading">
+		<h1>Django Startup</h1>
+		<span class="subheading">This is your first step!</span>
+	</div>
 {% endblock %}
 
 {% block content %}
-  {% for post in post_list %}
-  <div class="post-preview">
-    <h2 class="post-title">
-      {{ post.title }}
-    </h2>
-    <p class="post-meta">{{ post.published_date }}</p>
-    <p>{{ post.text|linebreaksbr|truncatechars:100 }}</p>
-  </div>
-  <hr>
-  {% endfor %}
+	{% for post in post_list %}
+		<div class="post-preview">
+			<h2 class="post-title">{{ post.title }}</h2>
+			<p class="post-meta">{{ post.published_date }}</p>
+			<p>{{ post.text|linebreaksbr|truncatechars:100 }}</p>
+		</div>
+		<hr>
+	{% endfor %}
 {% endblock %}
 ```

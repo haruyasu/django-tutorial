@@ -104,8 +104,8 @@ from blog.models import Post
 from django.views.generic import (ListView)
 
 class PostListView(ListView):
-  model = Post
-  template_name = "blog/post_list.html"
+    model = Post
+    template_name = "blog/post_list.html"
 ```
 
 次は、テンプレートのpost_list.htmlを作成します。

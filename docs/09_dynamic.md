@@ -23,11 +23,11 @@ from django.views.generic import (ListView)
 
 
 class PostListView(ListView):
-  model = Post
-  template_name = "blog/post_list.html"
+    model = Post
+    template_name = "blog/post_list.html"
 
-  def get_queryset(self):
-    return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    def get_queryset(self):
+      return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 ```
 
 ここでは、filter関数を使用して、公開順に投稿を並べるように指定しています。
