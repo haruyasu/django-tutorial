@@ -33,7 +33,7 @@ Djangoは1つのプロジェクトと1つ以上のアプリケーションで構
 
 ![プロジェクト](../img/project.png)
 
-django-admin startprojectコマンドでプロジェクトを作成します。
+``django-admin startproject``コマンドでプロジェクトを作成します。
 
 ```
 (myvenv) ~$ django-admin startproject mysite .
