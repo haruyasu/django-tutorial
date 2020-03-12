@@ -19,30 +19,30 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CreatePostView(LoginRequiredMixin, CreateView):
-  login_url = '/login/'
-  ...
+	login_url = '/login/'
+	...
 
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
-  login_url = '/login/'
-  ...
+	login_url = '/login/'
+	...
 
 
 class DraftListView(LoginRequiredMixin, ListView):
-  login_url = '/login/'
-  ...
+	login_url = '/login/'
+	...
 
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
-  ...
+	...
 
 @login_required
 def post_publish(request, pk):
-  ...
+	...
 
 @login_required
 def post_comment(request, pk):
-  ...
+	...
 ```
 
 ログインしている人だけが投稿、編集、削除、公開をできるようになりました。

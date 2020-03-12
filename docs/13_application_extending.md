@@ -57,16 +57,16 @@ blog/templates/blog/post_detail.html
 
 {% block header %}
 <div class="post-heading">
-  <h1>{{ post.title }}</h1>
-  {% if post.published_date %}
-    <span class="meta">{{ post.published_date }}</span>
-  {% endif %}
+	<h1>{{ post.title }}</h1>
+	{% if post.published_date %}
+		<span class="meta">{{ post.published_date }}</span>
+	{% endif %}
 </div>
 {% endblock %}
 
 {% block content %}
 <p>
-  {{ post.text|linebreaksbr }}
+	{{ post.text|linebreaksbr }}
 </p>
 {% endblock %}
 ```

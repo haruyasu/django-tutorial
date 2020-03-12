@@ -9,7 +9,7 @@ Editボタンの上にPublishボタンを追加します。
 blog/templates/blog/post_detail.html
 ```html
 {% if not post.published_date %}
-  <a class="btn btn-warning" href="{% url 'post_publish' pk=post.pk %}" role="button">Publish</a>
+    <a class="btn btn-warning" href="{% url 'post_publish' pk=post.pk %}" role="button">Publish</a>
 {% endif %}
 ```
 
@@ -17,7 +17,7 @@ blog/templates/blog/post_detail.html
 
 blog/urls.py
 ```python
-  path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
+  	path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
 ```
 
 ## 公開ボタンのViewを作成
@@ -27,9 +27,9 @@ blog/views.py
 from django.shortcuts import render, redirect, get_object_or_404
 
 def post_publish(request, pk):
-  post = get_object_or_404(Post, pk=pk)
-  post.publish()
-  return redirect('post_detail', pk=pk)
+	post = get_object_or_404(Post, pk=pk)
+	post.publish()
+	return redirect('post_detail', pk=pk)
 ```
 
 下書きでPublishボタンをクリックすると、詳細ページにリダイレクトされます。

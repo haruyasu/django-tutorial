@@ -139,27 +139,27 @@ accounts/templates/account/login.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>Login</h1>
+  	<h1>Login</h1>
 </div>
 {% endblock %}
 
 {% block content %}
-  <div class="row justify-content-center">
-    <p>アカウントをまだお持ちでなければ、こちらから<a href="{% url 'account_signup' %}">ユーザー登録</a>して下さい。</p>
-    <form method="post" action="{% url 'account_login' %}">
-      {% csrf_token %}
-      <table class="table">{{ form.as_table }}</table>
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <div class="text-center">
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">パスワードをお忘れですか？</a>
-        <p>
-          <button type="submit" class="save btn btn-success" role="button">Login</button>
-        </p>
-        </div>
-    </form>
-  </div>
+	<div class="row justify-content-center">
+		<p>アカウントをまだお持ちでなければ、こちらから<a href="{% url 'account_signup' %}">ユーザー登録</a>して下さい。</p>
+		<form method="post" action="{% url 'account_login' %}">
+		{% csrf_token %}
+		<table class="table">{{ form.as_table }}</table>
+		{% if redirect_field_value %}
+		<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+		{% endif %}
+		<div class="text-center">
+			<a class="button secondaryAction" href="{% url 'account_reset_password' %}">パスワードをお忘れですか？</a>
+			<p>
+			<button type="submit" class="save btn btn-success" role="button">Login</button>
+			</p>
+			</div>
+		</form>
+	</div>
 {% endblock %}
 ```
 
@@ -169,25 +169,25 @@ accounts/templates/account/logout.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>Log Out</h1>
+  	<h1>Log Out</h1>
 </div>
 {% endblock %}
 
 {% block content %}
-  <div class="row justify-content-center">
-    <form method="post" action="{% url 'account_logout' %}">
-      {% csrf_token %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-      {% endif %}
-      <div class="text-center">
-        <p>ログアウトしますか？</p>
-        <p>
-          <button type="submit" class="save btn btn-success" role="button">Log Out</button>
-        </p>
-      </div>
-    </form>
-  </div>
+	<div class="row justify-content-center">
+		<form method="post" action="{% url 'account_logout' %}">
+		{% csrf_token %}
+		{% if redirect_field_value %}
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+		{% endif %}
+		<div class="text-center">
+			<p>ログアウトしますか？</p>
+			<p>
+				<button type="submit" class="save btn btn-success" role="button">Log Out</button>
+			</p>
+		</div>
+		</form>
+	</div>
 {% endblock %}
 ```
 
@@ -197,27 +197,27 @@ accounts/templates/account/signup.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>Sign Up</h1>
+  	<h1>Sign Up</h1>
 </div>
 {% endblock %}
 
 {% block content %}
-  <div class="row justify-content-center">
-    <form method="post" action="{% url 'account_signup' %}">
-      {% csrf_token %}
-      <table class="table">{{ form.as_table }}</table>
+	<div class="row justify-content-center">
+		<form method="post" action="{% url 'account_signup' %}">
+		{% csrf_token %}
+		<table class="table">{{ form.as_table }}</table>
 
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
+		{% if redirect_field_value %}
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+		{% endif %}
 
-      <div class="text-center">
-        <p>
-          <button type="submit" class="save btn btn-success" role="button">Sign Up</button>
-        </p>
-      </div>
-    </form>
-  </div>
+		<div class="text-center">
+			<p>
+				<button type="submit" class="save btn btn-success" role="button">Sign Up</button>
+			</p>
+		</div>
+		</form>
+	</div>
 {% endblock %}
 ```
 
@@ -229,20 +229,20 @@ blog/templates/blog/base.html
 ```html
 {% if user.is_authenticated %}
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'post_new' %}">Post</a>
+  	<a class="nav-link" href="{% url 'post_new' %}">Post</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'post_draft_list' %}">Draft</a>
+  	<a class="nav-link" href="{% url 'post_draft_list' %}">Draft</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+ 	 <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
 </li>
 {% else %}
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
+  	<a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+  	<a class="nav-link" href="{% url 'account_login' %}">Login</a>
 </li>
 {% endif %}
 ```

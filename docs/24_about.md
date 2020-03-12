@@ -9,7 +9,7 @@
 html:blog/templates/blog/base.html
 ```html
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'about' %}">About</a>
+  	<a class="nav-link" href="{% url 'about' %}">About</a>
 </li>
 ```
 
@@ -17,7 +17,7 @@ html:blog/templates/blog/base.html
 
 blog/urls.py
 ```python
-  path('about/', views.AboutView.as_view(), name='about'),
+  	path('about/', views.AboutView.as_view(), name='about'),
 ```
 
 ## Viewを追加
@@ -28,7 +28,7 @@ from django.views.generic import (TemplateView, ListView, DetailView, CreateView
 
 
 class AboutView(TemplateView):
-  template_name = 'page/about.html'
+  	template_name = 'page/about.html'
 ```
 
 ## テンプレートを追加
@@ -46,7 +46,7 @@ blog/templates/page/about.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>About</h1>
+  	<h1>About</h1>
 </div>
 {% endblock %}
 

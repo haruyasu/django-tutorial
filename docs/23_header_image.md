@@ -88,8 +88,8 @@ upload_toでアップロードする画像の場所を指定します。
 blog/models.py
 ```python
 class Post(models.Model):
-  author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-  image = models.ImageField(upload_to='images',blank=True, null=True)　# 追加
+  	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+  	image = models.ImageField(upload_to='images',blank=True, null=True)　# 追加
 ```
 
 ### フィールドを追加
@@ -99,9 +99,9 @@ forms.pyにimageフィールドを追加します。
 blog/forms.py
 ```python
 class PostForm(forms.ModelForm):
-  class Meta:
-    model = Post
-    fields = ('author', 'title', 'text', 'image')　# 追加
+	class Meta:
+		model = Post
+		fields = ('author', 'title', 'text', 'image')　# 追加
 ```
 
 ### テンプレートを変更
@@ -115,13 +115,13 @@ formにenctype="multipart/form-data"を追加します。
 blog/templates/blog/post_edit.html
 ```html
 {% block content %}
-  <form method="POST" class="post-form" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="text-right">
-      <button type="submit" class="save btn btn-success" role="button">Save</button>
-    </div>
-  </form>
+	<form method="POST" class="post-form" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<div class="text-right">
+			<button type="submit" class="save btn btn-success" role="button">Save</button>
+		</div>
+	</form>
 {% endblock %}
 ```
 
@@ -133,9 +133,9 @@ blog/templates/blog/post_detail.html
 ```html
 {% if post.image %}
 <style>
-  header.masthead {
-    background-image: url('/{{ post.image.url }}') !important;
-  }
+	header.masthead {
+		background-image: url('/{{ post.image.url }}') !important;
+	}
 </style>
 {% endif %}
 
@@ -237,9 +237,9 @@ blog/templates/blog/post_detail.html
 ```html
 {% if post.image %}
 <style>
-  header.masthead {
-    background-image: url('{{ post.image.url }}') !important;
-  }
+	header.masthead {
+		background-image: url('{{ post.image.url }}') !important;
+	}
 </style>
 {% endif %}
 ```

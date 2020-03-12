@@ -58,9 +58,9 @@ from django import forms
 from .models import Post
 
 class PostForm(forms.ModelForm):
-  class Meta:
-    model = Post
-    fields = ('author', 'title', 'text')
+	class Meta:
+		model = Post
+		fields = ('author', 'title', 'text')
 ```
 
 ## フォームページのリンクを作成
@@ -70,7 +70,7 @@ Aboutの下にPostリンクを追加します。
 blog/templates/blog/base.html
 ```html
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'post_new' %}">Post</a>
+  	<a class="nav-link" href="{% url 'post_new' %}">Post</a>
 </li>
 ```
 
@@ -81,9 +81,9 @@ post/new/のURLを追加します。
 blog/urls.py
 ```python
 urlpatterns = [
-  path('', views.PostListView.as_view(), name='post_list'),
-  path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
-  path('post/new/', views.CreatePostView.as_view(), name='post_new'),
+  	path('', views.PostListView.as_view(), name='post_list'),
+  	path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
+  	path('post/new/', views.CreatePostView.as_view(), name='post_new'),
 ]
 ```
 
@@ -97,9 +97,9 @@ from blog.forms import PostForm
 from django.views.generic import (ListView, DetailView, CreateView)
 
 class CreatePostView(CreateView):
-  template_name = "blog/post_form.html"
-  form_class = PostForm
-  model = Post
+	template_name = "blog/post_form.html"
+	form_class = PostForm
+	model = Post
 ```
 
 ## フォームページのテンプレートを作成
@@ -112,18 +112,18 @@ blog/templates/blog/post_form.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>New post</h1>
+  	<h1>New post</h1>
 </div>
 {% endblock %}
 
 {% block content %}
-  <form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="text-right">
-      <button type="submit" class="save btn btn-success" role="button">Save</button>
-    </div>
-  </form>
+	<form method="POST" class="post-form">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<div class="text-right">
+			<button type="submit" class="save btn btn-success" role="button">Save</button>
+		</div>
+	</form>
 {% endblock %}
 ```
 
@@ -138,10 +138,10 @@ viewのCreatePostView関数を書き換えます。
 blog/views.py
 ```python
 class CreatePostView(CreateView):
-  template_name = "blog/post_form.html"
-  redirect_field_name = 'blog/post_detail.html'
-  form_class = PostForm
-  model = Post
+	template_name = "blog/post_form.html"
+	redirect_field_name = 'blog/post_detail.html'
+	form_class = PostForm
+	model = Post
 ```
 
 ## フォームの編集動作を作成
@@ -157,7 +157,7 @@ blog/templates/blog/post_detail.html
 <a class="btn btn-success" href="{% url 'post_edit' pk=post.pk %}" role="button">Edit</a>
 
 <p>
-  {{ post.text|linebreaksbr }}
+  	{{ post.text|linebreaksbr }}
 </p>
 ```
 
@@ -168,8 +168,8 @@ Editボタンを押した後のリンクを追加します。
 blog/urls.py
 ```python
 urlpatterns = [
-  ...
-  path('post/<int:pk>/edit/', views.PostUpdateView.as_view(), name='post_edit'),
+  	...
+  	path('post/<int:pk>/edit/', views.PostUpdateView.as_view(), name='post_edit'),
 ]
 ```
 
@@ -185,10 +185,10 @@ from django.views.generic import (ListView, DetailView, CreateView, UpdateView)
 
 
 class PostUpdateView(UpdateView):
-  template_name = "blog/post_form.html"
-  redirect_field_name = 'blog/post_detail.html'
-  form_class = PostForm
-  model = Post
+	template_name = "blog/post_form.html"
+	redirect_field_name = 'blog/post_detail.html'
+	form_class = PostForm
+	model = Post
 
 ```
 

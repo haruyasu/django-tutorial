@@ -9,7 +9,7 @@
 blog/templates/blog/base.html
 ```html
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'post_draft_list' %}">Draft</a>
+    <a class="nav-link" href="{% url 'post_draft_list' %}">Draft</a>
 </li>
 ```
 
@@ -19,7 +19,7 @@ urlはdrafts/にします。
 
 blog/urls.py
 ```python
-  path('drafts/', views.DraftListView.as_view(), name='post_draft_list'),
+  	path('drafts/', views.DraftListView.as_view(), name='post_draft_list'),
 ```
 
 ## 下書きのViewを作成
@@ -29,12 +29,12 @@ blog/urls.py
 blog/views.py
 ```python
 class DraftListView(ListView):
-  login_url = '/login/'
-  template_name = 'blog/post_draft_list.html'
-  model = Post
+	login_url = '/login/'
+	template_name = 'blog/post_draft_list.html'
+	model = Post
 
-  def get_queryset(self):
-    return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+	def get_queryset(self):
+		return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 ```
 
 ## 下書きのテンプレートを作成
@@ -47,23 +47,23 @@ blog/templates/blog/post_draft_list.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>Draft</h1>
+  	<h1>Draft</h1>
 </div>
 {% endblock %}
 
 {% block content %}
-  {% for post in post_list %}
-  <div class="post-preview">
-    <a href="{% url 'post_detail' pk=post.pk %}">
-      <h2 class="post-title">
-        {{ post.title }}
-      </h2>
-    </a>
-    <p class="post-meta">{{ post.created_date }}</p>
-    <p>{{ post.text|truncatechars:200 }}</p>
-  </div>
-  <hr>
-  {% endfor %}
+	{% for post in post_list %}
+	<div class="post-preview">
+		<a href="{% url 'post_detail' pk=post.pk %}">
+		<h2 class="post-title">
+			{{ post.title }}
+		</h2>
+		</a>
+		<p class="post-meta">{{ post.created_date }}</p>
+		<p>{{ post.text|truncatechars:200 }}</p>
+	</div>
+	<hr>
+	{% endfor %}
 {% endblock %}
 ```
 

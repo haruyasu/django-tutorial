@@ -15,7 +15,7 @@ blog/templates/blog/post_detail.html
 
 blog/urls.py
 ```python
-  path('post/<int:pk>/remove/', views.PostDeleteView.as_view(), name='post_remove'),
+  	path('post/<int:pk>/remove/', views.PostDeleteView.as_view(), name='post_remove'),
 ```
 
 ## 削除ボタンのViewを作成
@@ -27,9 +27,9 @@ from django.views.generic import (TemplateView, ListView, DetailView, CreateView
 
 
 class PostDeleteView(DeleteView):
-  model = Post
-  template_name = "blog/post_confirm_delete.html"
-  success_url = reverse_lazy('post_list')
+	model = Post
+	template_name = "blog/post_confirm_delete.html"
+	success_url = reverse_lazy('post_list')
 ```
 
 ## テンプレートを作成
@@ -44,21 +44,21 @@ blog/templates/blog/post_confirm_delete.html
 
 {% block header %}
 <div class="site-heading">
-  <h1>Post Delete</h1>
+  	<h1>Post Delete</h1>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
-  <form method="post">
-    {% csrf_token %}
-    <div class="text-center">
-      <p>{{ object }}を削除してもよろしいですか？</p>
-      <p>
-        <button type="submit" class="save btn btn-danger" role="button">Delete</button>
-      </p>
-    </div>
-  </form>
+	<form method="post">
+		{% csrf_token %}
+		<div class="text-center">
+		<p>{{ object }}を削除してもよろしいですか？</p>
+		<p>
+			<button type="submit" class="save btn btn-danger" role="button">Delete</button>
+		</p>
+		</div>
+	</form>
 </div>
 {% endblock %}
 ```
