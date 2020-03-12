@@ -498,9 +498,9 @@
 <p><img src="../img/nav.png" alt="Navigation"></p>
 <p>base.html&#x306B;JavaScript&#x3092;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>blog/templates/blog/base.html</p>
-<pre class="language-"><code class="lang-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://code.jquery.com/jquery-3.4.1.slim.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% static &apos;js/blog.js&apos; %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<pre class="language-"><code class="lang-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://code.jquery.com/jquery-3.4.1.slim.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% static &apos;js/blog.js&apos; %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
 
@@ -519,31 +519,31 @@ const mainNav = document.querySelector(&quot;#mainNav&quot;)
 
 // window&#x306E;&#x5E45;&#x304C;992px&#x4EE5;&#x4E0A;&#x306E;&#x5834;&#x5408;
 if (window.innerWidth &gt; 992) {
-  let previousTop = 0;
+    let previousTop = 0;
 
-  // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x30A4;&#x30D9;&#x30F3;&#x30C8;
-  window.addEventListener(&apos;scroll&apos;, (e) =&gt; {
-    // &#x30C8;&#x30C3;&#x30D7;&#x3092;&#x53D6;&#x5F97;
-    let currentTop = document.documentElement.scrollTop || document.body.scrollTop;
+    // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x30A4;&#x30D9;&#x30F3;&#x30C8;
+    window.addEventListener(&apos;scroll&apos;, (e) =&gt; {
+        // &#x30C8;&#x30C3;&#x30D7;&#x3092;&#x53D6;&#x5F97;
+        let currentTop = document.documentElement.scrollTop || document.body.scrollTop;
 
-    if (currentTop &lt; previousTop) {
-      // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;UP
-      if (currentTop &gt; 0 &amp;&amp; mainNav.classList.contains(&apos;is-fixed&apos;)) {
-        mainNav.classList.add(&quot;is-visible&quot;);
-      } else {
-        // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;TOP
-        mainNav.classList.remove(&quot;is-visible&quot;, &quot;is-fixed&quot;);
-      }
-    } else if (currentTop &gt; previousTop) {
-      // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;DOWN
-      mainNav.classList.remove(&quot;is-visible&quot;);
+        if (currentTop &lt; previousTop) {
+            // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;UP
+            if (currentTop &gt; 0 &amp;&amp; mainNav.classList.contains(&apos;is-fixed&apos;)) {
+                mainNav.classList.add(&quot;is-visible&quot;);
+                } else {
+                    // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;TOP
+                    mainNav.classList.remove(&quot;is-visible&quot;, &quot;is-fixed&quot;);
+                }
+            } else if (currentTop &gt; previousTop) {
+            // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;DOWN
+                mainNav.classList.remove(&quot;is-visible&quot;);
 
-      if (currentTop &gt; mainNav.clientHeight &amp;&amp; !mainNav.classList.contains(&apos;is-fixed&apos;)) {
-        mainNav.classList.add(&quot;is-fixed&quot;);
-      }
-    }
-    previousTop = currentTop;
-  });
+            if (currentTop &gt; mainNav.clientHeight &amp;&amp; !mainNav.classList.contains(&apos;is-fixed&apos;)) {
+                mainNav.classList.add(&quot;is-fixed&quot;);
+            }
+        }
+        previousTop = currentTop;
+    });
 }
 </code></pre>
 <p>&#x4E0B;&#x306B;&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3001;&#x4E0A;&#x306B;&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3068;&#x30CA;&#x30D3;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8868;&#x793A;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
@@ -590,7 +590,7 @@ if (window.innerWidth &gt; 992) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"next":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"path":"docs/23_header_image.md","ref":"docs/23_header_image.md","articles":[]},"previous":{"title":"22.コメント機能の追加","level":"1.22","depth":1,"path":"docs/21_comments.md","ref":"docs/21_comments.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/22_javascript.md","mtime":"2020-02-29T04:14:56.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-10T13:12:02.512Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"23.JavaScriptの追加","level":"1.23","depth":1,"next":{"title":"24.ヘッダー画像の追加","level":"1.24","depth":1,"path":"docs/23_header_image.md","ref":"docs/23_header_image.md","articles":[]},"previous":{"title":"22.コメント機能の追加","level":"1.22","depth":1,"path":"docs/21_comments.md","ref":"docs/21_comments.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","expand-active-chapter","collapsible-chapters"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expand-active-chapter":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/22_javascript.md","mtime":"2020-03-12T12:29:02.093Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T12:32:24.808Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
