@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "init": "gitbook init",
-    "start": "gitbook serve",
+    "start": "gitbook build && gitbook serve",
     "build": "gitbook build",
     "publish": "gh-pages -d _book -m 'Auto publish book'"
   },
