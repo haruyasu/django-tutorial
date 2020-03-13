@@ -4,7 +4,7 @@
 
 startappコマンドでアプリケーションを追加できます。
 
-今回はブログを作成するので、名前はblogにします。
+今回はブログを作成するので、名前は```blog```にします。
 
 ```
 (myvenv) ~$ python3 manage.py startapp blog
