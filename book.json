@@ -10,8 +10,10 @@
     "hide-published-with",
     "anchors",
     "back-to-top-button",
-    "expand-active-chapter",
-    "collapsible-chapters"
+    "collapsible-chapters",
+    "-lunr",
+    "-search",
+    "search-pro-kui"
   ],
   "pluginsConfig": {
     "prism": {

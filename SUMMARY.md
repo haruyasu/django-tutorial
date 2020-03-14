@@ -1,29 +1,44 @@
 # Table of contents
 
-* [1.ブログ構築](README.md)
-* [2.前準備](docs/01_ready.md)
-* [3.プロジェクトの作成](docs/02_project.md)
-* [4.新しいアプリケーションの作成](docs/03_app.md)
-* [5.モデルの作成](docs/04_models.md)
-* [6.管理画面の作成](docs/05_admin.md)
-* [7.URLの作成](docs/06_urls.md)
-* [8.Viewの作成](docs/07_views.md)
-* [9.HTMLの作成](docs/08_html.md)
-* [10.動的データの作成](docs/09_dynamic.md)
-* [11.テンプレートの作成](docs/10_templates.md)
-* [12.CSSの作成](docs/11_css.md)
-* [13.テンプレートの拡張](docs/12_template_extending.md)
-* [14.アプリケーションの拡張](docs/13_application_extending.md)
-* [15.フォームの作成](docs/14_forms.md)
-* [16.セキュリティ対策](docs/15_security.md)
-* [17.下書き機能の追加](docs/16_drafts.md)
-* [18.公開機能の追加](docs/17_publish.md)
-* [19.削除機能の追加](docs/18_delete.md)
-* [20.セキュリティの強化](docs/19_login_required.md)
-* [21.認証機能の追加](docs/20_accounts.md)
-* [22.コメント機能の追加](docs/21_comments.md)
-* [23.JavaScriptの追加](docs/22_javascript.md)
-* [24.ヘッダー画像の追加](docs/23_header_image.md)
-* [25.固定ページの追加](docs/24_about.md)
-* [26.ページネーション機能の追加](docs/25_pagenation.md)
-* [27.Herokuデプロイ](docs/26_deploy.md)
+## チュートリアル
+
+* [ブログ構築](README.md)
+
+## 準備
+
+* [前準備](docs/01_ready.md)
+
+### 開発
+
+* [プロジェクトの作成](docs/02_project.md)
+* [新しいアプリケーションの作成](docs/03_app.md)
+* [モデルの作成](docs/04_models.md)
+* [管理画面の作成](docs/05_admin.md)
+* [URLの作成](docs/06_urls.md)
+* [Viewの作成](docs/07_views.md)
+* [HTMLの作成](docs/08_html.md)
+* [動的データの作成](docs/09_dynamic.md)
+* [テンプレートの作成](docs/10_templates.md)
+* [CSSの作成](docs/11_css.md)
+* [テンプレートの拡張](docs/12_template_extending.md)
+* [アプリケーションの拡張](docs/13_application_extending.md)
+* [フォームの作成](docs/14_forms.md)
+* [セキュリティ対策](docs/15_security.md)
+* [下書き機能の追加](docs/16_drafts.md)
+* [公開機能の追加](docs/17_publish.md)
+* [削除機能の追加](docs/18_delete.md)
+* [セキュリティの強化](docs/19_login_required.md)
+* [認証機能の追加](docs/20_accounts.md)
+* [コメント機能の追加](docs/21_comments.md)
+* [JavaScriptの追加](docs/22_javascript.md)
+* [ヘッダー画像の追加](docs/23_header_image.md)
+* [固定ページの追加](docs/24_about.md)
+* [ページネーション機能の追加](docs/25_pagenation.md)
+
+## デプロイ
+
+* [Herokuデプロイ](docs/26_deploy.md)
+
+## その他
+
+* [おわりに](docs/27_finish.md)
