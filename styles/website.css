@@ -57,6 +57,11 @@
 	color: #3eaf7c !important;
 }
 
+.book-summary .header {
+    font-weight: 600 !important;
+    color: #273849 !important;
+}
+
 a {
 	text-decoration: none !important;
 }
