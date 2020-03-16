@@ -16,7 +16,11 @@ https://docs.djangoproject.com/ja/2.2/
 
 ぜひオリジナルのアプリケーションを開発してみてください。
 
+## フィードバック
+
 チュートリアルのフィードバックは、Twitter([@hathle](https://twitter.com/hathle))までお願いいたします。
+
+## チュートリアル構成
 
 Djangoチュートリアルは3段階構成にします。
 
