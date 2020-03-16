@@ -24,16 +24,16 @@ https://docs.djangoproject.com/ja/2.2/
 
 Djangoチュートリアルは3段階構成にします。
 
-レベル1 ★  
+ステップ1 ★  
 https://haruyasu.github.io/django-tutorial/
 * 基本的なWebアプリ開発の流れを学習
   * ブログシステム構築
 
-レベル2 ★★
+ステップ2 ★★
 * APIの使い方を学習
   * レストラン検索、口コミシステム構築
 
-レベル3 ★★★
+ステップ3 ★★★
 * Django Rest Frameworkを使用してAPI実装を学習
   * バックエンド：Django
   * フロントエンド：Vue.js

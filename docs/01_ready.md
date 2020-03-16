@@ -100,8 +100,7 @@ pipコマンドをアップデートしておきましょう。
 現在、古いコマンドがインストールされています。
 
 ```
-(myvenv) ~$ pip3 install --upgrade pip
-(myvenv) ~$ pip3 install --upgrade setuptools
+(myvenv) ~$ pip3 install --upgrade pip setuptools
 ```
 
 ## 環境準備
@@ -119,7 +118,7 @@ https://brew.sh/index_ja
 
 Linuxの場合
 ```
-sudo apt-get install python3-dev
+sudo apt-get install python3-dev libpq-dev
 ```
 
 ## Djangoパッケージをインストール
