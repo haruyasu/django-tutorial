@@ -21,13 +21,27 @@ freezeコマンドをすることによって、アプリを動かすための�
 requirements.txt
 ```
 asgiref==3.2.3
+certifi==2019.11.28
+chardet==3.0.4
+cloudinary==1.20.0
+defusedxml==0.6.0
 dj-database-url==0.5.0
 Django==2.2.10
+django-allauth==0.41.0
+django-cloudinary-storage==0.2.3
 django-heroku==0.3.1
 gunicorn==19.9.0
+idna==2.9
+oauthlib==3.1.0
+Pillow==7.0.0
 psycopg2==2.8.4
+python3-openid==3.1.0
 pytz==2019.3
+requests==2.23.0
+requests-oauthlib==1.3.0
+six==1.14.0
 sqlparse==0.3.0
+urllib3==1.25.8
 whitenoise==5.0.1
 ```
 
