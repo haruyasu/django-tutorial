@@ -595,7 +595,7 @@ urlpatterns <span class="token operator">+=</span> static<span class="token punc
 <p>&#x6295;&#x7A3F;&#x753B;&#x9762;&#x3067;&#x753B;&#x50CF;&#x3092;&#x6295;&#x7A3F;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>form&#x306B;enctype=&quot;multipart/form-data&quot;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x753B;&#x50CF;&#x3092;&#x30A2;&#x30C3;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x306B;&#x306F;&#x3053;&#x306E;&#x6307;&#x5B9A;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>blog/templates/blog/post_edit.html</p>
+<p>blog/templates/blog/post_form.html</p>
 <pre class="language-"><code class="lang-html">{% block content %}
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>POST<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>post-form<span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
         {% csrf_token %}
@@ -728,7 +728,7 @@ CLOUDINARY_STORAGE <span class="token operator">=</span> <span class="token punc
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ヘッダー画像の追加","level":"3.22","depth":1,"next":{"title":"固定ページの追加","level":"3.23","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"previous":{"title":"JavaScriptの追加","level":"3.21","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","collapsible-chapters","-lunr","-search","search-pro-kui"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"collapsible-chapters":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"copy-code-button":{},"search-pro-kui":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/23_header_image.md","mtime":"2020-03-14T02:44:02.366Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-16T10:37:00.788Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ヘッダー画像の追加","level":"3.22","depth":1,"next":{"title":"固定ページの追加","level":"3.23","depth":1,"path":"docs/24_about.md","ref":"docs/24_about.md","articles":[]},"previous":{"title":"JavaScriptの追加","level":"3.21","depth":1,"path":"docs/22_javascript.md","ref":"docs/22_javascript.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","prism","-highlight","copy-code-button","hide-published-with","anchors","back-to-top-button","collapsible-chapters","-lunr","-search","search-pro-kui","livereload"],"styles":{"website":"/styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"collapsible-chapters":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"copy-code-button":{},"search-pro-kui":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Tutorial","language":"ja","gitbook":"*","description":"Django Tutorial"},"file":{"path":"docs/23_header_image.md","mtime":"2020-03-21T00:49:18.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T00:54:02.503Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -759,6 +759,10 @@ CLOUDINARY_STORAGE <span class="token operator">=</span> <span class="token punc
     
         
         <script src="../gitbook/gitbook-plugin-search-pro-kui/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
