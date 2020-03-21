@@ -112,7 +112,7 @@ formにenctype="multipart/form-data"を追加します。
 
 画像をアップロードするにはこの指定が必要になります。
 
-blog/templates/blog/post_edit.html
+blog/templates/blog/post_form.html
 ```html
 {% block content %}
 	<form method="POST" class="post-form" enctype="multipart/form-data">
